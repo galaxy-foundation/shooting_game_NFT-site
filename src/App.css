@@ -1,0 +1,1266 @@
+body {
+  background-color: #130714;
+}
+.x-navContainer {
+  background-color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+  height: 90px;
+  z-index: 5;
+  position: fixed;
+  width: 100%;
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* font styles */
+.x-font1 {
+  font-family: initial;
+  font-size: 25px;
+  color: white;
+}
+
+.x-font2-bold {
+  font-family: initial;
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+}
+
+.x-font2 {
+  font-family: initial;
+  font-size: 35px;
+  color: black;
+  font-weight: 600;
+}
+
+.x-font3 {
+  font-family: initial;
+  font-size: 25px;
+  color: white;
+  font-weight: 600;
+}
+
+.x-font4 {
+  font-family: initial;
+  font-size: 20px;
+  color: black;
+  font-weight: 600;
+}
+
+.x-font5 {
+  font-family: initial;
+  font-size: 14px;
+  color: #f4bd22;
+}
+
+.x-font6 {
+  font-family: initial;
+  font-size: 20px;
+  color: white;
+  font-weight: 600;
+}
+
+.x-font7 {
+  font-family: initial;
+  font-size: 20px;
+  color: #f4bd22;
+}
+.x-font8 {
+  font-family: initial;
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffffff;
+}
+/* grid styles */
+
+.x-grid1 {
+  margin-left: 10%;
+  width: 30%;
+}
+.x-grid2 {
+  margin-left: 15% !important;
+  width: 70% !important;
+}
+.x-grid3 {
+  margin-top: 10% !important;
+  margin-bottom: 5% !important;
+  padding-left: 3% !important;
+  padding-right: 3% !important;
+}
+.x-grid4 {
+  padding-left: 15% !important;
+  padding-right: 15% !important;
+}
+.x-grid5 {
+  margin-left: 10% !important;
+  width: 80% !important;
+}
+
+.x-grid6 {
+  margin-left: 5% !important;
+  width: 90% !important;
+}
+
+.x-logo {
+  margin-right: 80px;
+}
+
+.x-topImg {
+  width: 350px;
+}
+
+.x-humburger-icon {
+  float: right;
+  color: white !important;
+  z-index: 4;
+}
+
+.x-navLink {
+  text-decoration: none !important;
+  font-family: initial;
+  font-size: 17px;
+  color: white;
+  margin-right: 25px;
+}
+
+.x-navLink:hover {
+  text-decoration: none !important;
+  font-family: initial;
+  font-size: 17px;
+  color: #999999;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+.x-chocoImgBtn {
+  background: url("./assets/img/chocoImgBtn.png") no-repeat scroll 0 0
+    transparent;
+  background-size: cover;
+  color: #262200;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 200px !important;
+  height: 72px !important;
+  font-family: initial;
+  font-size: 25px !important;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.x-smallChoco {
+  background: url("./assets/img/chocoImgBtn.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #262200;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 160px;
+  height: 55px;
+  font-family: initial;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.x-smallChoco-1 {
+  background: url("./assets/img/chocoImgBtn.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #262200;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 160px;
+  height: 55px;
+  font-family: initial;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.x-greenImgBtn {
+  background: url("./assets/img/greenImgBtn.png") no-repeat scroll 0 0
+    transparent;
+  background-size: cover;
+  color: #262200;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 200px !important;
+  height: 72px !important;
+  font-size: 25px !important;
+  font-family: initial;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+.x-smallGreen {
+  background: url("./assets/img/greenImgBtn.png") no-repeat scroll 0 0
+    transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #262200;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 160px;
+  height: 55px;
+  font-family: initial;
+  margin-right: 5px;
+  margin-left: 5px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.x-home-top {
+  position: relative;
+  /* background: url("./assets/img/homeTop.png"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* aspect-ratio: 1560 / 1050; */
+}
+
+.defi-pool {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: url("./assets/img/poolBackground.png");
+  /* border-bottom: 60px solid rgba(168, 98, 6, 0.363); */
+  padding-bottom: 60px;
+}
+
+.x-home-top-video {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  z-index: 3;
+  width: 100%;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.step1 {
+  background-image: url("./assets/img/shooting/back1.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.step2 {
+  background-image: url("./assets/img/shooting/back2.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: 0px 3px 10px black;
+}
+
+.x-home-step-video {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  z-index: 3;
+  width: 100%;
+  height: 1080px;
+  background-attachment: fixed;
+  box-shadow: 0px 3px 10px black;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.x-home-top-img {
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  transform: translate(-50%);
+  background-attachment: fixed;
+}
+
+.x-home1-top-img {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.x-home1-top-img h1 {
+  color: white;
+  font-size: 200%;
+}
+
+.home-card {
+  text-align: center;
+}
+
+.home-title {
+  font-weight: 500;
+  font-family: "Roboto Slab" !important;
+  font-size: 8vh;
+  color: #ddd;
+  font-family: sans-serif;
+  /* font-style: italic; */
+}
+
+.home-title-s {
+  margin-bottom: 50px;
+  font-family: "Roboto Slab" !important;
+  font-weight: 400;
+  font-size: 30px;
+  color: white;
+  font-family: initial;
+  font-style: italic;
+}
+
+.home-title-about {
+  margin-top: 80px !important;
+  padding-bottom: 50px;
+}
+.home-about-img {
+  background-color: rgb(255, 255, 255);
+  border-radius: 40px;
+  border: 10px solid rgb(212, 145, 58);
+}
+
+@media only screen and (max-width: 768px) {
+  .x-chocoImgBtn {
+    background: url("./assets/img/chocoImgBtn.png") no-repeat scroll 0 0
+      transparent;
+    background-size: cover;
+    color: #262200;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 130px !important;
+    height: 45px !important;
+    font-family: initial;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 20px !important;
+  }
+
+  .x-greenImgBtn {
+    background: url("./assets/img/greenImgBtn.png") no-repeat scroll 0 0
+      transparent;
+    background-size: cover;
+    color: #262200;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 130px !important;
+    height: 45px !important;
+    font-family: initial;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 20px !important;
+  }
+
+  .x-home-top-img {
+    position: absolute;
+    bottom: 10px;
+    left: calc(50% - 150px);
+  }
+
+  .home-title-s {
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 20px;
+    color: white;
+    font-family: initial;
+    font-style: italic;
+  }
+
+  .x-font8 {
+    font-family: initial;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+}
+
+.home-button {
+  color: black !important;
+}
+
+.home-button:hover {
+  color: black !important;
+  text-decoration: none;
+}
+
+.x-defi-top-img {
+  position: relative;
+  text-align: center;
+  margin-bottom: 100px !important;
+}
+
+.x-home-about-back {
+  position: relative;
+  background: url("./assets/img/aboutBack1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  aspect-ratio: 1490 / 944;
+  padding-top: 15px;
+}
+
+.x-home-features {
+  position: relative;
+  background: url("./assets/img/featureBack.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  aspect-ratio: 1600 / 600;
+  padding-bottom: 100px !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .x-home-features {
+    padding-top: 50px;
+  }
+}
+
+.x-feature-item {
+  border-image: none;
+  border-radius: 50% 50% 0% 0%;
+  border-style: solid;
+  border-width: 5px;
+  height: 100%;
+  margin-left: 10%;
+  width: 80%;
+  overflow: hidden;
+}
+
+.x-feature-item-bottom {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  color: white;
+  font-family: initial;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.x-home-petToken {
+  position: relative;
+  background: url("./assets/img/homeOtherBack.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding-top: 15px;
+}
+.x-home-petToken-title {
+  width: 250px;
+}
+
+.x-footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  background: url("./assets/img/footerBack.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 1505 / 851;
+  padding-top: 6%;
+}
+
+.x-home-bottom {
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+}
+
+.x-home-newletter {
+  color: white;
+  position: absolute;
+  width: 60%;
+  padding: 1%;
+  left: 50%;
+  transform: translate(-50%);
+  top: -40px;
+  z-index: 4;
+  border-radius: 50px;
+  /* background-color: rgb(83, 3, 3); */
+  background-color: black;
+  align-items: center;
+}
+
+.x-home-newletter input {
+  outline: none;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  width: 30%;
+  color: white;
+}
+
+.x-home-newletter button {
+  width: 15%;
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 50px;
+  border: 1px solid darkred;
+  color: #ddd;
+  background: transparent;
+  transition: all 0.3s;
+}
+
+.x-home-newletter button:hover {
+  border: 1px solid white;
+  background: #ddd;
+  color: red;
+}
+
+.newlettertitle {
+  padding: 20px;
+  font-size: 30px;
+  font-family: "Segoe UI Emoji";
+  padding-left: 10%;
+  padding-right: 10%;
+  font-weight: bold;
+  color: white;
+}
+
+.x-home-info {
+  background-image: url("./assets/img/shooting/bottom.png");
+  opacity: 0.5;
+  background-color: black;
+  background-image: 100% 100%;
+  width: 100%;
+  height: 500px;
+  text-align: center;
+}
+
+.x-home-info-skeleton {
+  color: white;
+}
+
+.x-defi-bottom {
+  position: relative;
+  background: url("./assets/img/defi/defiBottomBack.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  aspect-ratio: 1600 / 1500;
+}
+
+.x-tokenomics-bottom {
+  position: relative;
+  background: url("./assets/img/tokenomics/bottomBack.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  aspect-ratio: 2300 / 1500;
+}
+
+.x-footer-content {
+  position: absolute;
+  bottom: 30px;
+}
+
+.x-footer-link {
+  font-size: 20px;
+  font-family: initial;
+  color: white;
+  text-decoration: none;
+}
+
+.x-footer-link:hover {
+  font-size: 20px;
+  font-family: initial;
+  color: white;
+  text-decoration: none;
+}
+
+.x-defi-top-video {
+  position: relative;
+  width: 76%;
+  margin-left: 12%;
+  text-align: center;
+}
+
+.x-defi-stakeCard1 {
+  position: relative;
+  width: 90%;
+  margin-left: 5%;
+  background: url("./assets/img/defi/stakeCardBack1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  aspect-ratio: 473 / 537;
+}
+
+.x-defi-stakeCard2 {
+  position: relative;
+  width: 90%;
+  margin-left: 5%;
+  background: url("./assets/img/defi/stakeCardBack2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  aspect-ratio: 473 / 537;
+}
+
+.x-defi-buyCard1 {
+  position: relative;
+  width: 96%;
+  margin-left: 2%;
+  /* background: url("./assets/img/tokenomics/buyCardBack2.png"); */
+  background-color: rgba(71, 216, 241, 0.808);
+  border-radius: 40px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 80px;
+  border: 6px solid rgb(255, 255, 255);
+}
+
+.swap-title-1 {
+  color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+}
+
+.x-defi-buyCard2 {
+  position: relative;
+  width: 96%;
+  margin-left: 2%;
+  /* background: url("./assets/img/tokenomics/buyCardBack2.png"); */
+  background-color: rgba(90, 104, 235, 0.699);
+  border-radius: 40px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 80px;
+  border: 6px solid rgb(255, 255, 255);
+}
+
+.chart-card {
+  width: 100%;
+  text-align: center;
+}
+.chart-card div {
+  margin: auto;
+}
+
+.x-defi-lp {
+  position: relative;
+  background: url("./assets/img/homeFooterBack.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.x-defi-priceCard {
+  border-radius: 8px;
+  padding: 4%;
+}
+
+.x-stakeCard-input {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: #ffffffe1;
+  color: black;
+  font-weight: 500;
+  font-size: 23px;
+}
+
+.x-nft-itemCard {
+  border-radius: 10px;
+  background-color: #2f1433da;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding-bottom: 60px;
+  transition: 0.5s ease-in-out;
+}
+
+.x-nft-itemCard-info {
+  padding: 4%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  transform: translateY(40%);
+  border-radius: 20px 0px 0px 0px;
+  transition: 0.2s ease-in-out;
+  background-color: #2f1433;
+  padding-bottom: 10px;
+}
+
+.x-nft-itemCard:hover .x-nft-itemCard-info {
+  transform: translateY(0);
+}
+
+.x-nft-itemCard:hover img {
+  transition: 0.2s ease-in-out;
+}
+
+.x-breed-card {
+  position: relative;
+  height: 100%;
+}
+
+.x-breed-card img {
+  width: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+}
+
+.x-breed-card img:hover {
+  transform: translate(-50%, -60%);
+}
+
+.x-myItem-itemCard {
+  background-color: #2f1433;
+  border-radius: 5px;
+}
+
+.x-nft-item-image {
+  padding: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .x-breed-card {
+    position: relative;
+    height: 300px;
+  }
+
+  .x-breed-card img {
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s;
+  }
+
+  .x-grid1 {
+    margin-left: 5%;
+    width: 90%;
+  }
+  .x-grid2 {
+    margin-left: 1% !important;
+    width: 98% !important;
+  }
+  .x-topImg {
+    width: 250px;
+  }
+
+  .x-home-petToken-title {
+    width: 100% !important;
+  }
+
+  .x-defi-top-video {
+    position: relative;
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+  }
+
+  .x-defi-stakeCard1 {
+    position: relative;
+    margin-left: 0px;
+    width: 100%;
+    background: url("./assets/img/defi/stakeCardBack1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    aspect-ratio: 473 / 537;
+  }
+
+  .x-defi-stakeCard2 {
+    position: relative;
+    margin-left: 0px;
+    width: 100%;
+    background: url("./assets/img/defi/stakeCardBack2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    aspect-ratio: 473 / 537;
+  }
+
+  .x-defi-buyCard1 {
+    position: relative;
+    margin-left: 0px;
+    width: 100%;
+    background: url("./assets/img/tokenomics/buyCardBack1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    aspect-ratio: 473 / 507;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .x-footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    background: url("./assets/img/footerBack.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 850px;
+    padding-top: 60px;
+  }
+
+  .x-home-bottom {
+    position: relative;
+    width: 100%;
+    background: url("./assets/img/poolBackground.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 1200px;
+  }
+  .x-defi-bottom {
+    position: relative;
+    width: 100%;
+    background: url("./assets/img/defi/defiBottomBack.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 1400px;
+  }
+
+  .x-tokenomics-bottom {
+    position: relative;
+    width: 100%;
+    background: url("./assets/img/tokenomics/bottomBack.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 1400px;
+  }
+}
+
+.text-right {
+  text-align: right;
+}
+
+.swapForm {
+  padding-left: 15% !important;
+  padding-right: 15% !important;
+}
+
+.padding-top {
+  padding-top: 50px;
+}
+
+.swap-button {
+  height: 60px !important;
+  width: 250px !important;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 25px;
+  color: #ffffff;
+  background-color: #a06916;
+}
+
+.liquidity-button {
+  height: 60px !important;
+  width: 250px !important;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 25px;
+  color: #ffffff;
+  background-color: #a06916;
+}
+
+.toggle-buttons {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.toggle-buttons .swap {
+  width: 140px;
+  padding: 10px 0px;
+  border-radius: 25% 0% 0% 25%;
+  background-color: #41f1da;
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
+
+  /* border: none!important; */
+}
+.toggle-buttons .liquidity {
+  width: 140px;
+  padding: 10px 0px;
+  border-radius: 0% 25% 25% 0%;
+  background-color: #3fbcdb;
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
+  /* border: none!important; */
+}
+
+.spacer {
+  height: 20px;
+  width: 100%;
+}
+
+.spacer-1 {
+  height: 40px;
+  width: 100%;
+}
+
+.spacer-2 {
+  height: 80px;
+  width: 100%;
+}
+
+.spacer-3 {
+  height: 500px;
+  width: 100%;
+}
+
+.margin-bottom {
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .spacer-3 {
+    height: 60px;
+    width: 100%;
+  }
+
+  .margin-bottom {
+    margin-bottom: 2px;
+  }
+  .quick-link {
+    display: none !important;
+  }
+  .Pet-world {
+    display: none !important;
+  }
+}
+
+.Pet-world {
+  width: 100px !important;
+}
+
+.connect-us {
+  margin-bottom: 20px;
+}
+
+.border-radius {
+  border-radius: 30px;
+}
+
+.economy-card {
+  padding: 50px !important;
+  margin-top: 60px;
+  border-radius: 30px;
+}
+
+.x-eggBuyPage {
+  margin-top: 80px !important;
+  width: 80%;
+  margin: auto;
+}
+
+.x-BuyCard-InfoList {
+  padding-top: 40px;
+}
+.x-buyCard-infoField {
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+}
+.x-buyCard-infoField-1 {
+  width: 80%;
+  margin: auto;
+  padding: 8px;
+}
+.progressBar {
+  padding-top: 20px;
+  height: 100%;
+}
+
+.y-font1 {
+  font-size: 30px;
+  color: white;
+}
+
+.y-font1-bold {
+  font-size: 30px;
+  font-weight: 600;
+  color: white;
+}
+
+.BuyCard-infos {
+  position: relative;
+}
+.x-buyCard-button-field {
+  position: absolute;
+  bottom: 40px;
+  margin-left: 10%;
+  width: 80%;
+}
+
+.x-buyCard-button-field-pet {
+  display: inline-block;
+  margin-left: 5%;
+  width: 40%;
+  margin-right: 5%;
+}
+
+.x-buyCard-button-field-pet-1 {
+  display: inline-block;
+  margin-left: 5%;
+  width: 90%;
+  margin-right: 5%;
+}
+
+@media only screen and (max-width: 1000px) {
+  .x-eggBuyPage {
+    width: 95%;
+  }
+
+  .x-buyCard-infoField {
+    width: 100%;
+  }
+
+  .x-buyCard-button-field {
+    position: relative;
+    bottom: 40px;
+    margin-top: 60px;
+    width: 80%;
+  }
+}
+.x-buyCard-button {
+  width: 100%;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 700;
+  font-size: 35px;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  color: #ffffff;
+  background-color: #3dd28d;
+  border: none;
+  border-radius: 20px;
+  line-height: 3em;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.x-buyCard-button:hover {
+  color: white;
+  box-shadow: 0 0 30px 0 rgba(0, 199, 236, 0.5);
+  background-color: #00c7ec;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.x-buyCard-button:hover:before {
+  -webkit-animation: shine 0.5s 0s linear;
+  -moz-animation: shine 0.5s 0s linear;
+  animation: shine 0.5s 0s linear;
+}
+.x-buyCard-button:active {
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: box-shadow 0.2s ease-in;
+  -moz-transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
+}
+.x-buyCard-button:before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: white;
+  box-shadow: 0 0 15px 3px white;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+@-webkit-keyframes shine {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+@-moz-keyframes shine {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+@keyframes shine {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    left: 100%;
+  }
+}
+
+.splash-screen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-screen .loading-dot {
+  font-size: 100px;
+  margin-top: -80px;
+  position: relative;
+  animation: ease-in-out infinite alternate;
+  animation-name: run;
+  animation-duration: 1.2s;
+}
+
+@keyframes run {
+  0% {
+    left: -90px;
+    color: #eee;
+  }
+  50% {
+    color: #666;
+  }
+  100% {
+    left: 90px;
+    color: #eee;
+  }
+}
+
+.alert-info {
+  font-size: 20px;
+  text-align: center;
+  padding: 30px;
+}
+
+.link-button {
+  cursor: pointer;
+  color: rgb(65, 120, 236) !important;
+}
+
+.x-itemPetpage-growButton {
+  outline: none;
+  height: 55px;
+  text-align: center;
+  width: 160px;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.062);
+  border: 2px solid #1ecd97;
+  padding: 5px;
+  color: #1ecd97;
+  letter-spacing: 1px;
+  text-shadow: 0;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.x-itemPetpage-growButton:hover {
+  color: white;
+  background: #1ecd97;
+}
+
+.sweet-home-card {
+  background-color: white;
+}
+
+.onsale-button {
+  color: white !important;
+  width: 80% !important;
+  font-weight: 500 !important;
+  font-size: 30 !important;
+
+  background-color: rgb(57, 235, 152) !important;
+}
+
+.onsale-button:hover {
+  background-color: rgb(29, 233, 29) !important;
+}
+
+.Mui-disabled {
+  color: rgb(43, 43, 43) !important;
+  background-color: rgb(192, 192, 192) !important;
+}
+
+.color-blue {
+  color: rgb(247, 192, 11) !important;
+}
