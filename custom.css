@@ -1,0 +1,6 @@
+@import "react-alice-carousel/lib/alice-carousel.css";
+@import "react-image-gallery/styles/css/image-gallery.css";
+
+.image-gallery-slide {
+    width: 100%;
+}
