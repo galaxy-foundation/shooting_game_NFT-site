@@ -16,10 +16,15 @@ function ItemContent(props){
 
     const CreateWeaponTokens = state.CreateWeaponTokens;
 
-    const tokenURI = 
-        CreateWeaponTokens.tokenURIs&&CreateWeaponTokens.tokenURIs[status]?
-        JSON.parse(CreateWeaponTokens.tokenURIs[status])
-        :{};
+    const [tokenURI, setTokenURI] = useState({});
+
+    useEffect(() => {
+        var tokenURI = 
+            CreateWeaponTokens.tokenURIs&&CreateWeaponTokens.tokenURIs[status]?
+            JSON.parse(CreateWeaponTokens.tokenURIs[status])
+            :{};
+        setTokenURI(tokenURI);
+    },[CreateWeaponTokens.tokenURIs])
     
     const {img,title,price} = {
         img : tokenURI["image"],
@@ -28,7 +33,7 @@ function ItemContent(props){
     };
 
     useEffect(()=>{
-        setIsReady(CreateWeaponTokens.tokenURIs !== undefined)
+        setIsReady(CreateWeaponTokens.tokenURIs !== undefined&&CreateWeaponTokens.tokenURIs[status])
     },[CreateWeaponTokens.tokenURIs])
 
     const [loading, setLoading] = useState(false);
