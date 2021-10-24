@@ -114,6 +114,44 @@ function Nav() {
 
 		window.addEventListener("resize", () => setResponsiveness());
 	}, []);
+	
+	const handleAddChain =async ()=>{
+		await wallet.connect();
+		let {ethereum} = window;
+
+		const ICICB_CHAIN = {
+			chainId: '0x1a',
+			chainName: 'ICICB localNet',
+			nativeCurrency: {
+				name: 'ICICB',
+				symbol: 'ICICB',
+				decimals: 18
+			},
+			rpcUrls: ['http://3.17.193.52/'],
+			blockExplorerUrls: ['http://3.17.193.52/']
+		}
+		const AVALANCHE_MAINNET_PARAMS = {
+			chainId: '0xA86A',
+			chainName: 'Avalanche Mainnet C-Chain',
+			nativeCurrency: {
+				name: 'Avalanche',
+				symbol: 'AVAX',
+				decimals: 18
+			},
+			rpcUrls: ['https://api.avax.network/ext/bc/C/rpc'],
+			blockExplorerUrls: ['https://cchain.explorer.avax.network/']
+		}
+
+		ethereum.request({
+			method: 'wallet_addEthereumChain',
+			params: [ICICB_CHAIN]
+		  })
+		  .catch((error) => {
+			console.log(error)
+		  })
+	}
+
+
 
 	const desktopContent = (
 		<div

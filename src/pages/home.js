@@ -6,8 +6,9 @@ import Nav from "../components/layout/nav";
 import BottomSection from '../components/home/bottom';
 import CharactSlide from "../components/home/character-slide";
 import GameIntro from "../components/home/gameintro";
-import defiVideo from "../assets/video/pet_video.mp4";
+import defiVideo from "../assets/video/video.mp4";
 import splitImg from "../assets/img/shooting/split_symbol.png";
+import game_screen from "../assets/img/shooting/game_screen.png"
 // import {Grid} from '@material-ui/core';
 // import { Link } from "react-router-dom";
 
