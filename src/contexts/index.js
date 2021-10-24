@@ -18,10 +18,10 @@ export function useApplicationContext() {
 function reducer(state, { type, payload }) {
   switch (type) {
     case "UPDATE_CREATEWEAPONTOKENS": {
-      const { CreateWeaponToken } = payload;
+      const { CreateWeaponTokens } = payload;
       return {
         ...state,
-        CreateWeaponTokens: CreateWeaponToken,
+        CreateWeaponTokens: CreateWeaponTokens,
       };
     }
     case "UPDATE_WEAPONTOKENS": {
@@ -56,28 +56,28 @@ const INITIAL_STATE = {
   CreateWeaponTokens: {
     tokenURIs: [],
     assetIDs: [],
-    initPrice: [],
+    initPrices: [],
   },
   WeaponTokens: {
     creators: [],
     owners: [],
     tokenURIs: [],
     assetIDs: [],
-    initPrice: [],
+    initPrices: [],
   },
   MyWeaponTokens: {
     creators: [],
     owners: [],
     tokenURIs: [],
     assetIDs: [],
-    initPrice: [],
+    initPrices: [],
   },
   MARKETWeaponTokens: {
     creators: [],
     owners: [],
     tokenURIs: [],
     assetIDs: [],
-    initPrice: [],
+    initPrices: [],
     orders: [],
   },
 };
@@ -142,6 +142,7 @@ export default function Provider({ children }) {
             console.log(ids, err);
           }
         );
+        console.log('updateCreateWeaponTokens' ,_tokenInfos)
         updateCreateWeaponTokens(_tokenInfos);
       }
     } catch (err) {
@@ -158,7 +159,7 @@ export default function Provider({ children }) {
       }
 
       if (ids !== []) {
-        var _tokenInfos = await MultiCall.getPetInfos(ids).catch((err) => {
+        var _tokenInfos = await MultiCall.getWeaponInfos(ids).catch((err) => {
           console.log(ids, err);
         });
         updateWeaponTokens(_tokenInfos);
@@ -175,7 +176,7 @@ export default function Provider({ children }) {
       var owners = [];
       var tokenURIs = [];
       var assetIDs = [];
-      var initPrice = [];
+      var initPrices = [];
 
       const WeaponTokens = state.WeaponTokens;
 
@@ -185,7 +186,7 @@ export default function Provider({ children }) {
           owners.push(WeaponTokens.owners[index]);
           tokenURIs.push(WeaponNFT.tokenURIs[index]);
           assetIDs.push(WeaponNFT.assetIDs[index]);
-          initPrice.push(WeaponNFT.initPrice[index]);
+          initPrices.push(WeaponNFT.initPrices[index]);
         }
       });
 
@@ -195,7 +196,7 @@ export default function Provider({ children }) {
         owners,
         tokenURIs,
         assetIDs,
-        initPrice,
+        initPrices,
         assetsInfos,
       });
     } catch (err) {
@@ -211,7 +212,7 @@ export default function Provider({ children }) {
       var owners = [];
       var tokenURIs = [];
       var assetIDs = [];
-      var initPrice = [];
+      var initPrices = [];
 
       const WeaponTokens = state.WeaponTokens;
       WeaponTokens.owners.map((owner, index) => {
@@ -220,7 +221,7 @@ export default function Provider({ children }) {
           owners.push(WeaponTokens.owners[index]);
           tokenURIs.push(WeaponNFT.tokenURIs[index]);
           assetIDs.push(WeaponNFT.assetIDs[index]);
-          initPrice.push(WeaponNFT.initPrice[index]);
+          initPrices.push(WeaponNFT.initPrices[index]);
         }
       });
 
@@ -234,7 +235,7 @@ export default function Provider({ children }) {
         owners,
         tokenURIs,
         assetIDs,
-        initPrice,
+        initPrices,
         orders,
       });
     } catch (err) {

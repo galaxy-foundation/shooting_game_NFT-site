@@ -2,13 +2,13 @@
 // import {staking1,staking2} from './stakingcontracts';
 // import {artContract,eggContract,petContract,multiContract,marketPlaceContract} from './gameContracts'
 import { ethers } from "ethers";
-import localContracts from "./localContracts.json";
+import gameContracts from "./gameContracts.json";
 
 // const testnetRPC =  `https://kovan.infura.io/v3/0c5409f01bb944168d3bb4b03a674f15`;
 const testnetRPC = "https://rpc.testnet.fantom.network";
-const localRPC = "http://localhost:8545";
+const localRPC = "http://localhost:7545";
 
-const provider = new ethers.providers.JsonRpcProvider(testnetRPC);
+const provider = new ethers.providers.JsonRpcProvider(localRPC);
 
 // const PetSwapRouterContract = new ethers.Contract(petSwapRouterContract.kovan, petSwapRouterContract.abi, provider);
 // const PetSwapFactoryContract = new ethers.Contract(petSwapFactoryContract.kovan, petSwapFactoryContract.abi, provider);
@@ -27,26 +27,26 @@ const provider = new ethers.providers.JsonRpcProvider(testnetRPC);
 // const MarketPlaceContract = new ethers.Contract(marketPlaceContract.kovan, marketPlaceContract.abi, provider);
 
 const AtariToken = new ethers.Contract(
-  localContracts.atariToken.address,
-  localContracts.atariToken.abi,
+  gameContracts.atariToken.address,
+  gameContracts.atariToken.abi,
   provider
 );
 const WeaponNFT = new ethers.Contract(
-  localContracts.weaponNFT.address,
-  localContracts.weaponNFT.abi,
+  gameContracts.weaponNFT.address,
+  gameContracts.weaponNFT.abi,
   provider
 );
 const MultiCall = new ethers.Contract(
-  localContracts.multiCall.address,
-  localContracts.multiCall.abi,
+  gameContracts.multiCall.address,
+  gameContracts.multiCall.abi,
   provider
 );
 const MarketPlace = new ethers.Contract(
-  localContracts.marketPlace.address,
-  localContracts.marketPlace.abi,
+  gameContracts.marketPlace.address,
+  gameContracts.marketPlace.abi,
   provider
 );
-// const MultiContract = new ethers.Contract (localContracts.multiCall.address, localContracts.multiCall.abi, provider);
-// const MarketPlaceContract = new ethers.Contract(localContracts.marketPlace.address, localContracts.marketPlace.abi, provider);
+// const MultiContract = new ethers.Contract (gameContracts.multiCall.address, gameContracts.multiCall.abi, provider);
+// const MarketPlaceContract = new ethers.Contract(gameContracts.marketPlace.address, gameContracts.marketPlace.abi, provider);
 
 export { AtariToken, WeaponNFT, MultiCall, MarketPlace };

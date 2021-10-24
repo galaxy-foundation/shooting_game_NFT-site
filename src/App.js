@@ -9,6 +9,7 @@ import React, { useState, useEffect } from "react";
 import ApplicationProvider from "./contexts";
 import LoadingScreen from "react-loading-screen";
 import logoImg from "./assets/img/logo.png";
+import 'react-loading-skeleton/dist/skeleton.css'
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -27,7 +28,7 @@ function App() {
       text="Loading Screen"
     >
       <UseWalletProvider
-        chainId={4002}
+        chainId={1337}
         connectors={{
           // This is how connectors get configured
           portis: { dAppId: "my-dapp-id-123-xyz" },

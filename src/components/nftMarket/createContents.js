@@ -8,6 +8,7 @@ import { useApplicationContext } from "../../contexts";
 function CreateContents() {
   const [state] = useApplicationContext();
   const CreateWeaponTokens = state.CreateWeaponTokens;
+  console.log("CreateContents CreateWeaponTokens",CreateWeaponTokens)
 
   //eggInfo
   useEffect(() => {}, []);
@@ -15,13 +16,13 @@ function CreateContents() {
   return (
     <div className="mb-5">
       <Grid container spacing={3} className="x-grid5">
-        {CreateWeaponTokens.tokenURIs.map((contents, id) => {
+        {CreateWeaponTokens?CreateWeaponTokens.tokenURIs.map((contents, id) => {
           return (
-            <Grid item xs={12} sm={6} md={3}>
-              <ItemCard data={id} />
+            <Grid item xs={12} sm={6} md={3} key = {id}>
+              <ItemCard id={id} />
             </Grid>
           );
-        })}
+        }):""}
       </Grid>
     </div>
   );

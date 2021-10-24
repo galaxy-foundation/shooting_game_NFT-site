@@ -735,6 +735,17 @@ body {
   padding-bottom: 10px;
 }
 
+.x-nft-itemCard-video {
+  height: 190px;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .x-nft-itemCard-video {
+    height: 160px;
+  }
+}
+
 .x-nft-itemCard:hover .x-nft-itemCard-info {
   transform: translateY(0);
 }
@@ -965,6 +976,9 @@ body {
 .margin-bottom {
   margin-bottom: 20px;
 }
+.padding-top-4 {
+  padding-top: 10vh;
+}
 
 @media only screen and (max-width: 1000px) {
   .spacer-3 {
@@ -1002,7 +1016,8 @@ body {
 }
 
 .x-eggBuyPage {
-  margin-top: 80px !important;
+  padding-top: 150px !important;
+  padding-bottom: 150px !important;
   width: 80%;
   margin: auto;
 }

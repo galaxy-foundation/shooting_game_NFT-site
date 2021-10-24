@@ -1,6 +1,6 @@
 {
     "atariToken": {
-        "address": "0x96fD6Dd143ada497F07E1e5A54Ac260A4fD9Ed30",
+        "address": "0x10243a09b31717780e7f2f4d21082D4822e5e8a8",
         "abi": [
             {
                 "inputs": [],
@@ -364,7 +364,7 @@
         ]
     },
     "weaponNFT": {
-        "address": "0xfDbD51990d1dE4CB0F184d8Bc065Ca252F89D148",
+        "address": "0x2D2d2C2f233b5291c9491111D6Ad06CCB3E34a62",
         "abi": [
             {
                 "inputs": [
@@ -499,6 +499,25 @@
                     }
                 ],
                 "name": "OwnershipTransferred",
+                "type": "event"
+            },
+            {
+                "anonymous": false,
+                "inputs": [
+                    {
+                        "indexed": false,
+                        "internalType": "address",
+                        "name": "user",
+                        "type": "address"
+                    },
+                    {
+                        "indexed": false,
+                        "internalType": "string",
+                        "name": "name",
+                        "type": "string"
+                    }
+                ],
+                "name": "Registered",
                 "type": "event"
             },
             {
@@ -674,6 +693,19 @@
             {
                 "inputs": [
                     {
+                        "internalType": "string",
+                        "name": "name",
+                        "type": "string"
+                    }
+                ],
+                "name": "changeName",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
                         "internalType": "uint256",
                         "name": "_assetId",
                         "type": "uint256"
@@ -795,6 +827,25 @@
                 "type": "function"
             },
             {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "",
+                        "type": "address"
+                    }
+                ],
+                "name": "isRegistered",
+                "outputs": [
+                    {
+                        "internalType": "bool",
+                        "name": "",
+                        "type": "bool"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
                 "inputs": [],
                 "name": "name",
                 "outputs": [
@@ -837,6 +888,19 @@
                     }
                 ],
                 "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "string",
+                        "name": "name",
+                        "type": "string"
+                    }
+                ],
+                "name": "register",
+                "outputs": [],
+                "stateMutability": "nonpayable",
                 "type": "function"
             },
             {
@@ -1004,6 +1068,19 @@
             },
             {
                 "inputs": [],
+                "name": "totalAssets",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
                 "name": "totalSupply",
                 "outputs": [
                     {
@@ -1050,11 +1127,30 @@
                 "outputs": [],
                 "stateMutability": "nonpayable",
                 "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "",
+                        "type": "address"
+                    }
+                ],
+                "name": "users",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
             }
         ]
     },
     "multiCall": {
-        "address": "0x6776452B6C7868B13B0dfDA46D0016a8D23c31b3",
+        "address": "0xAfdf7bAB1bAEfB15d974882a4FC3157ae74CB0Aa",
         "abi": [
             {
                 "anonymous": false,
@@ -1092,7 +1188,7 @@
                     },
                     {
                         "internalType": "string[]",
-                        "name": "URIs",
+                        "name": "tokenURIs",
                         "type": "string[]"
                     },
                     {
@@ -1195,7 +1291,7 @@
         ]
     },
     "marketPlace": {
-        "address": "0x99de3a5672b5B121001a7C689c68031010b644De",
+        "address": "0x8383169C399aBBBaB5328B6144cd10DfC79504a9",
         "abi": [
             {
                 "inputs": [

@@ -1,12 +1,8 @@
 import React from "react";
-import Intro from "../components/nftMarket/intro";
 import Nav from "../components/layout/nav";
-import ItemContent from "../components/buyEggPage/itemContent";
-import Bottom from "../components/nftMarket/bottom";
-import { useState, useEffect, useMemo } from "react";
-import { useWallet } from "use-wallet";
-import { useApplicationContext } from "../contexts";
+import ItemContent from "../components/createWeaponPage/itemContent";
 import { useHistory } from "react-router-dom";
+import BottomSection from '../components/home/bottom';
 
 function WeaponCreatePage(props) {
   const history = useHistory();
@@ -14,14 +10,14 @@ function WeaponCreatePage(props) {
   var router = props.match.params.id;
   console.log("router", router);
   if (router === undefined || router == null) {
-    history.push("/nft-marketplace/eggs");
+    history.push("/nft-marketplace/create");
   }
 
   return (
     <div>
       <Nav />
-      <ItemContent router={router} />
-      <Bottom />
+      {router?<ItemContent router={router} />:""}
+      <BottomSection />
     </div>
   );
 }

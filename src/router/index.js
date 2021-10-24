@@ -4,26 +4,26 @@ import {
     Switch,
     Route
   } from "react-router-dom";
-  import Home from "../pages/home";
-  //   import Items from "../pages/items";
-  import NftMarketplace from "../pages/nftMarket";
-  //   import WeaponCreatepage from "../pages/weaponCreatePage";
-  //   import PetBuyPage from "../pages/buyPetPage";
-  //   import ItemEggPage from "../pages/itemEggPage";
-  //   import ItemPetPage from "../pages/itemPetPage";
+import Home from "../pages/home";
+//   import Items from "../pages/items";
+import NftMarketplace from "../pages/nftMarket";
+import WeaponCreatepage from "../pages/weaponCreatePage";
+//   import PetBuyPage from "../pages/buyPetPage";
+//   import ItemEggPage from "../pages/itemEggPage";
+//   import ItemPetPage from "../pages/itemPetPage";
 
-  function Routes() {
+function Routes() {
     return (
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/nft-marketplace/:id" component={NftMarketplace} />
-          {/* <Route
+          <Route
             exact
             path="/nft-marketplace/create/:id"
             component={WeaponCreatepage}
           />
-          <Route
+          {/* <Route
             exact
             path="/nft-marketplace/pets/:id"
             component={PetBuyPage}
@@ -36,6 +36,6 @@ import {
         </Switch>
       </BrowserRouter>
     );
-  }
+}
 
 export default Routes;

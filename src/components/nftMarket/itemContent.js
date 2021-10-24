@@ -19,10 +19,10 @@ function ItemContent(props) {
     history.push(`/nft-marketplace/weapons`);
   };
   return (
-    <div className="mb-5">
+    <div className="padding-top-4">
       <div className="text-center mt-4 mb-5">
-        <ChocoButton text="Eggs" onClick={createButtonHandle} />
-        <ChocoButton text="Pets" onClick={weaponButtonHandle} />
+        <ChocoButton text="Create" onClick={createButtonHandle} />
+        <ChocoButton text="Market" onClick={weaponButtonHandle} />
       </div>
       <CreateContents />
       {/* {status === "pets" ? <PetContents /> : <EggContents />} */}
