@@ -4,6 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import logoImg from "../../assets/img/logo.png";
 import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
+import LoginDialog from "../home/logindialog";
 import MenuIcon from "@material-ui/icons/Menu";
 import IconButton from "@material-ui/core/IconButton";
 import ChocoImgBtn from "../home/chocoImgBtn";
@@ -49,7 +50,11 @@ const StyledMenuItem = withStyles((theme) => ({
   },
 }))(MenuItem);
 
-function Nav({ setOpen, loginState, setTabValue }) {
+function Nav() {
+  const [open, setOpen] = React.useState(false);
+  const [loginState, setLoginState] = React.useState(false);
+  const [tabValue, setTabValue] = React.useState("0");
+
   const wallet = useWallet();
   var styledAddress = wallet.account
     ? wallet.account.slice(0, 4) + ".." + wallet.account.slice(-4)
@@ -250,6 +255,13 @@ function Nav({ setOpen, loginState, setTabValue }) {
           </StyledMenuItem>
         </StyledMenu>
       </div>
+      <LoginDialog
+        open={open}
+        setOpen={setOpen}
+        setLoginState={setLoginState}
+        tabValue={tabValue}
+        setTabValue={setTabValue}
+      />
     </div>
   );
 }
