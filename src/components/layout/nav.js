@@ -139,12 +139,12 @@ function Nav({ setOpen, loginState, setTabValue }) {
       <Link to="/" className="x-navLink">
         Home
       </Link>
-      <ScrollLink to="about" spy={true} smooth={true} className="x-navLink">
+      {/* <ScrollLink to="about" spy={true} smooth={true} className="x-navLink">
         About Game
       </ScrollLink>
       <ScrollLink to="features" spy={true} smooth={true} className="x-navLink">
         Features
-      </ScrollLink>
+      </ScrollLink> */}
       {/* <Link to="/tokenomics" className="x-navLink">
 				Tokenomics
 			</Link>
