@@ -75,8 +75,7 @@ function ItemContent(props){
             }
             else {
                 buyEgg();
-            }
-            
+            } 
         }
     }
 

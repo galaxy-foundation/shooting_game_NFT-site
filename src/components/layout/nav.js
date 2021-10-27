@@ -220,18 +220,18 @@ function Nav() {
 					</StyledMenuItem>
 
 					{/*
-										<StyledMenuItem onClick = {()=>history.push("/#about")}>
-										<ListItemIcon>
-												<DraftsIcon fontSize="small" />
-										</ListItemIcon>
-										<ListItemText primary="About Game" />
-										</StyledMenuItem>
-										<StyledMenuItem onClick = {()=>history.push("/#features")}>
-										<ListItemIcon>
-												<InboxIcon fontSize="small" />
-										</ListItemIcon>
-										<ListItemText primary="Features" />
-										</StyledMenuItem > */}
+						<StyledMenuItem onClick = {()=>history.push("/#about")}>
+						<ListItemIcon>
+								<DraftsIcon fontSize="small" />
+						</ListItemIcon>
+						<ListItemText primary="About Game" />
+						</StyledMenuItem>
+						<StyledMenuItem onClick = {()=>history.push("/#features")}>
+						<ListItemIcon>
+								<InboxIcon fontSize="small" />
+						</ListItemIcon>
+						<ListItemText primary="Features" />
+						</StyledMenuItem > */}
 
 					<StyledMenuItem onClick={() => history.push("/defi")}>
 						<ListItemIcon>
