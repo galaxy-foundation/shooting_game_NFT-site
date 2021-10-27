@@ -31,21 +31,25 @@ const AtariToken = new ethers.Contract(
   gameContracts.atariToken.abi,
   provider
 );
+
 const WeaponNFT = new ethers.Contract(
   gameContracts.weaponNFT.address,
   gameContracts.weaponNFT.abi,
   provider
 );
+
 const MultiCall = new ethers.Contract(
   gameContracts.multiCall.address,
   gameContracts.multiCall.abi,
   provider
 );
+
 const MarketPlace = new ethers.Contract(
   gameContracts.marketPlace.address,
   gameContracts.marketPlace.abi,
   provider
 );
+
 // const MultiContract = new ethers.Contract (gameContracts.multiCall.address, gameContracts.multiCall.abi, provider);
 // const MarketPlaceContract = new ethers.Contract(gameContracts.marketPlace.address, gameContracts.marketPlace.abi, provider);
 

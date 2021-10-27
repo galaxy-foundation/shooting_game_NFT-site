@@ -5,14 +5,11 @@ import { useHistory } from "react-router-dom";
 import Nav from "../components/layout/nav";
 
 function NftMarket(props) {
-  const [open, setOpen] = React.useState(false);
-  const [loginState, setLoginState] = React.useState(false);
-  const [tabValue, setTabValue] = React.useState("0");
   const history = useHistory();
 
   var router = props.match.params.id;
   console.log("router", router);
-  if (router == undefined || router == null) {
+  if (router === undefined || router == null) {
     history.push("/nft-marketplace/create");
   }
 
@@ -21,9 +18,7 @@ function NftMarket(props) {
       <div className="x-home-top">
         <Nav />
       </div>
-      {/*<Intro />
-           
-           */}
+      {/*<Intro />*/}
       <ItemContent router={router} />
       <BottomSection />
     </div>

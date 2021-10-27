@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "../components/layout/nav";
 import ItemContent from "../components/createWeaponPage/itemContent";
 import { useHistory } from "react-router-dom";
-import BottomSection from '../components/home/bottom';
+import BottomSection from "../components/home/bottom";
 
 function WeaponCreatePage(props) {
   const history = useHistory();
@@ -16,7 +16,7 @@ function WeaponCreatePage(props) {
   return (
     <div>
       <Nav />
-      {router?<ItemContent router={router} />:""}
+      {router ? <ItemContent router={router} /> : ""}
       <BottomSection />
     </div>
   );
