@@ -3,12 +3,12 @@ import Nav from "../components/layout/nav";
 // import topImg from '../assets/img/homeTopImg.png';
 // import About from '../components/home/about';
 // import PetToken from '../components/home/petToken';
-import BottomSection from '../components/home/bottom';
+import BottomSection from "../components/home/bottom";
 import CharactSlide from "../components/home/character-slide";
 import GameIntro from "../components/home/gameintro";
 import defiVideo from "../assets/video/video.mp4";
 import splitImg from "../assets/img/shooting/split_symbol.png";
-import game_screen from "../assets/img/shooting/game_screen.png"
+import game_screen from "../assets/img/shooting/game_screen.png";
 // import {Grid} from '@material-ui/core';
 // import { Link } from "react-router-dom";
 
@@ -28,7 +28,7 @@ function Home() {
                 We must save our world <br />
                 with our power
               </div>
-              <button className="x-greenImgBtn">Play (soon)</button>
+              <button className="x-greenImgBtn">PLAY NOW</button>
             </div>
           </div>
         </div>

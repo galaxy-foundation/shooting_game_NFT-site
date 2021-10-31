@@ -169,8 +169,7 @@ body {
 }
 
 .x-chocoImgBtn {
-  background: url("./assets/img/chocoImgBtn.png") no-repeat scroll 0 0
-    transparent;
+  background: url("./assets/img/chocoImgBtn.png") no-repeat scroll 0 0 transparent;
   background-size: cover;
   color: #262200;
   border: none;
@@ -203,34 +202,45 @@ body {
 }
 
 .x-smallChoco-1 {
-  background: url("./assets/img/chocoImgBtn.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #262200;
-  border: none;
+  /* background: url("./assets/img/chocoImgBtn.png");
+  opacity: 0.5; */
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  /* background-size: 100% 100%; */
+  /* background-repeat: no-repeat; */
+  background: transparent;
+  color: white;
   outline: none;
+  border: 3px solid transparent;
   cursor: pointer;
   width: 160px;
   height: 55px;
-  font-family: initial;
+  font-family: "Maiandra GD";
+  text-shadow: 0px 2px 2px black;
   margin-right: 5px;
   margin-left: 5px;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 23px;
+  transition: all 0.7s;
+}
+
+.x-smallChoco-1:hover {
+    border: 3px solid white;
+    background: rgba(0, 0, 0, 0.3)
 }
 
 .x-greenImgBtn {
-  background: url("./assets/img/greenImgBtn.png") no-repeat scroll 0 0
-    transparent;
-  background-size: cover;
-  color: #262200;
+  /* background: url("./assets/img/greenImgBtn.png") no-repeat scroll 0 0 transparent;
+  background-size: cover; */
+  background: transparent;
+  color: white;
   border: none;
   outline: none;
   cursor: pointer;
-  width: 200px !important;
+  width: 300px !important;
   height: 72px !important;
-  font-size: 25px !important;
-  font-family: initial;
+  font-size: 50px !important;
+  font-family: "Leelawadee";
+  text-shadow: 0px 3px 3px black;
   margin-right: 10px;
   margin-left: 10px;
   font-weight: 600;
