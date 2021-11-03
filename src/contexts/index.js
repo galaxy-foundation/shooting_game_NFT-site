@@ -45,6 +45,13 @@ function reducer(state, { type, payload }) {
                 MARKETWeaponTokens: MARKETWeaponTokens,
             };
         }
+        case "UPDATE_MyMARKETPLACE_WEAPONTOKENS": {
+            const { MyMARKETWeaponTokens } = payload;
+            return {
+                ...state,
+                MyMARKETWeaponTokens: MyMARKETWeaponTokens,
+            };
+        }
 
         default: {
             throw Error(
@@ -71,16 +78,22 @@ const INITIAL_STATE = {
         creators: [],
         owners: [],
         tokenURIs: [],
-        assetIDs: [],
-        initPrices: [],
+        tokenIDs: []
     },
     MARKETWeaponTokens: {
         creators: [],
         owners: [],
         tokenURIs: [],
-        assetIDs: [],
-        initPrices: [],
+        tokenIDs: [],
         orders: [],
+    },
+    MyMARKETWeaponTokens: {
+        creators: [],
+        owners: [],
+        tokenURIs: [],
+        tokenIDs: [],
+        orders: [],
+        bids: [],
     },
 };
 
@@ -118,11 +131,21 @@ export default function Provider({ children }) {
         });
     }, []);
 
-    const updateMARKETPLACEWeaponTokens = useCallback((MARKETWeaponTokens) => {
+    const updateMarketPlaceWeaponTokens = useCallback((MARKETWeaponTokens) => {
         dispatch({
             type: "UPDATE_MARKETPLACE_WEAPONTOKENS",
             payload: {
                 MARKETWeaponTokens,
+            },
+        });
+    }, []);
+
+    
+    const updateMyMarketPlaceWeaponTokens = useCallback((MyMARKETWeaponTokens) => {
+        dispatch({
+            type: "UPDATE_MyMARKETPLACE_WEAPONTOKENS",
+            payload: {
+                MyMARKETWeaponTokens,
             },
         });
     }, []);
@@ -178,73 +201,97 @@ export default function Provider({ children }) {
         }
     };
 
-    const myWeaponTokenUpdate = async (myAddress) => {
-        //egg token structure;
+    const myWeaponTokenUpdate = async (userAddress) => {
+        //weapon token structure;
         try {
             var creators = [];
             var owners = [];
             var tokenURIs = [];
-            var assetIDs = [];
-            var initPrices = [];
+            var tokenIDs = [];
 
             const WeaponTokens = state.WeaponTokens;
 
             WeaponTokens.owners.map((owner, index) => {
-                if (owner.toUpperCase() === myAddress.toUpperCase()) {
+                if (owner.toUpperCase() === userAddress.toUpperCase()) {
                     creators.push(WeaponTokens.creators[index]);
                     owners.push(WeaponTokens.owners[index]);
-                    tokenURIs.push(WeaponNFT.tokenURIs[index]);
-                    assetIDs.push(WeaponNFT.assetIDs[index]);
-                    initPrices.push(WeaponNFT.initPrices[index]);
+                    tokenURIs.push(WeaponTokens.tokenURIs[index]);
+                    tokenIDs.push(index);
                 }
             });
 
-            var assetsInfos = await WeaponNFT.getAssets(assetIDs);
             updateMyWeaponTokens({
                 creators,
                 owners,
                 tokenURIs,
-                assetIDs,
-                initPrices,
-                assetsInfos,
+                tokenIDs
             });
         } catch (err) {
             console.log(err);
         }
     };
 
-    // myEggtoken update
+    // myweapontoken update
     const MARKETWeaponTokenUpdate = async () => {
-        //egg token structure;
+        //weapon token structure;
         try {
             var creators = [];
             var owners = [];
             var tokenURIs = [];
-            var assetIDs = [];
-            var initPrices = [];
+            var tokenIDs = [];
 
             const WeaponTokens = state.WeaponTokens;
             WeaponTokens.owners.map((owner, index) => {
                 if (owner.toUpperCase() === MarketPlace.address.toUpperCase()) {
                     creators.push(WeaponTokens.creators[index]);
                     owners.push(WeaponTokens.owners[index]);
-                    tokenURIs.push(WeaponNFT.tokenURIs[index]);
-                    assetIDs.push(WeaponNFT.assetIDs[index]);
-                    initPrices.push(WeaponNFT.initPrices[index]);
+                    tokenURIs.push(WeaponTokens.tokenURIs[index]);
+                    tokenIDs.push(index);
                 }
             });
 
             //marketOrder
             var orders = await MarketPlace.getOrderByAssetIds(
                 WeaponNFT.address,
-                assetIDs
+                tokenIDs
             );
-            updateMARKETPLACEWeaponTokens({
+            updateMarketPlaceWeaponTokens({
                 creators,
                 owners,
                 tokenURIs,
-                assetIDs,
-                initPrices,
+                tokenIDs,
+                orders,
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    const MyMARKETWeaponTokenUpdate = async (userAddress) => {
+        //weapon token structure;
+        try {
+            var creators = [];
+            var owners = [];
+            var tokenURIs = [];
+            var tokenIDs = [];
+            var orders = [];
+
+            const MARKETWeaponTokens = state.MARKETWeaponTokens;
+            MARKETWeaponTokens.orders.map((order, index) => {
+                if (order.seller.toUpperCase() === userAddress.toUpperCase()) {
+                    creators.push(MARKETWeaponTokens.creators[index]);
+                    owners.push(MARKETWeaponTokens.owners[index]);
+                    tokenURIs.push(MARKETWeaponTokens.tokenURIs[index]);
+                    tokenIDs.push(index);
+                    orders.push(MARKETWeaponTokens.orders[index]);
+                }
+            });
+
+            updateMyMarketPlaceWeaponTokens({
+                creators,
+                owners,
+                tokenURIs,
+                tokenIDs,
                 orders,
             });
         } catch (err) {
@@ -258,7 +305,9 @@ export default function Provider({ children }) {
         createWeaponTokenUpdate();
     }, []);
 
-    //my tokenUpdate
+    /* ---------- Hooks ---------- */
+    /////////////////////////////////
+    
     useMemo(() => {
         if (
             wallet.status === "connected" &&
@@ -269,6 +318,16 @@ export default function Provider({ children }) {
         }
         MARKETWeaponTokenUpdate();
     }, [state.WeaponTokens, wallet.account, wallet.status]);
+
+    useMemo(()=>{
+        if (
+            wallet.status === "connected" &&
+            wallet.account !== null &&
+            wallet.account !== undefined
+        ) {
+            MyMARKETWeaponTokenUpdate(wallet.account);
+        }
+    },[state.MARKETWeaponTokens]);
 
     useEffect(() => {
         tokenUpdates();

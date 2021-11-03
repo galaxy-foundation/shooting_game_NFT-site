@@ -23,7 +23,7 @@ function Home() {
           </video>
           <div className="x-home-top-img">
             <div className="home-card">
-              <div className="home-title">Let"'"s save Our World</div>
+              <div className="home-title">Let{"'"}s save Our World</div>
               <div className="home-title-s">
                 We must save our world <br />
                 with our power

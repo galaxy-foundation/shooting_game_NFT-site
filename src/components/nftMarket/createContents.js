@@ -8,7 +8,7 @@ import { useApplicationContext } from "../../contexts";
 function CreateContents() {
   const [state] = useApplicationContext();
   const CreateWeaponTokens = state.CreateWeaponTokens;
-  console.log("CreateContents CreateWeaponTokens",CreateWeaponTokens)
+//   console.log("CreateContents CreateWeaponTokens",CreateWeaponTokens)
 
   //eggInfo
   useEffect(() => {}, []);

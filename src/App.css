@@ -188,7 +188,7 @@ body {
   background: url("./assets/img/chocoImgBtn.png");
   background-size: cover;
   background-repeat: no-repeat;
-  color: #262200;
+  color: #f6df11;
   border: none;
   outline: none;
   cursor: pointer;
@@ -337,9 +337,9 @@ body {
 
 .x-home1-top-img {
   position: absolute;
-  top: 20%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-10%);
+  top: 10%;
 }
 
 .x-home1-top-img h1 {
@@ -1025,7 +1025,7 @@ body {
   border-radius: 30px;
 }
 
-.x-eggBuyPage {
+.x-weaponCreatePage {
   padding-top: 150px !important;
   padding-bottom: 150px !important;
   width: 80%;
@@ -1086,7 +1086,7 @@ body {
 }
 
 @media only screen and (max-width: 1000px) {
-  .x-eggBuyPage {
+  .x-weaponCreatePage {
     width: 95%;
   }
 
@@ -1288,4 +1288,15 @@ body {
 
 .color-blue {
   color: rgb(247, 192, 11) !important;
+}
+
+
+img {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none;
 }

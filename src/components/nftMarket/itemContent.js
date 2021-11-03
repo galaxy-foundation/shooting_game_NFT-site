@@ -3,7 +3,7 @@ import ChocoButton from './smallChoco';
 import {useHistory} from 'react-router-dom';
 
 import CreateContents from "./createContents";
-// import PetContents from "./petContents";
+import MarketContents from "./marketContents";
 
 function ItemContent(props) {
   const status = props.router;
@@ -20,12 +20,12 @@ function ItemContent(props) {
   };
   return (
     <div className="padding-top-4">
-      <div className="text-center mt-4 mb-5">
-        <ChocoButton text="Create" onClick={createButtonHandle} />
-        <ChocoButton text="Market" onClick={weaponButtonHandle} />
-      </div>
-      <CreateContents />
-      {/* {status === "pets" ? <PetContents /> : <EggContents />} */}
+        <div className="text-center mt-4 mb-5">
+            <ChocoButton text="Create" onClick={createButtonHandle} />
+            <ChocoButton text="Market" onClick={weaponButtonHandle} />
+        </div>
+        {status === "weapons" ? <MarketContents /> : <CreateContents />}
+        <div className = "spacer-2"></div>
     </div>
   );
 }

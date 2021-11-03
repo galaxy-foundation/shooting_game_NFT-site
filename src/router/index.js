@@ -5,12 +5,14 @@ import {
     Route
   } from "react-router-dom";
 import Home from "../pages/home";
-//   import Items from "../pages/items";
+
+import Items from "../pages/items";
 import NftMarketplace from "../pages/nftMarket";
 import WeaponCreatepage from "../pages/weaponCreatePage";
+
+import ItemsPage from "../pages/myItemsPage";
 //   import PetBuyPage from "../pages/buyPetPage";
 //   import ItemEggPage from "../pages/itemEggPage";
-//   import ItemPetPage from "../pages/itemPetPage";
 
 function Routes() {
     return (
@@ -29,9 +31,10 @@ function Routes() {
             component={PetBuyPage}
           /> */}
           <Route exact path="/nft-marketplace" component={NftMarketplace} />
-          {/* <Route exact path="/my-items" component={Items} />
+          <Route exact path="/my-items" component={Items} />
           <Route exact path="/my-items/:id" component={Items} />
-          <Route exact path="/my-items/eggs/:id" component={ItemEggPage} />
+          <Route exact path="/my-items/items/:id" component={ItemsPage} />
+          {/* <Route exact path="/my-items/eggs/:id" component={ItemEggPage} />
           <Route exact path="/my-items/pets/:id" component={ItemPetPage} /> */}
         </Switch>
       </BrowserRouter>

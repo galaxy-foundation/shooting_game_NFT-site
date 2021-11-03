@@ -20,26 +20,26 @@ function App() {
 
   return (
     <LoadingScreen
-      loading={loading}
-      bgColor="#00ccff"
-      spinnerColor="#9ee5f8"
-      textColor="#ffffff"
-      logoSrc={logoImg}
-      text="Loading Screen"
+    loading={loading}
+    bgColor="#00ccff"
+    spinnerColor="#9ee5f8"
+    textColor="#ffffff"
+    logoSrc={logoImg}
+    text="Loading Screen"
     >
-      <UseWalletProvider
-        chainId={1337}
-        connectors={{
-          // This is how connectors get configured
-          portis: { dAppId: "my-dapp-id-123-xyz" },
-        }}
-      >
-        <Provider store={store}>
-          <ApplicationProvider>
-            <Routes />
-          </ApplicationProvider>
-        </Provider>
-      </UseWalletProvider>
+        <UseWalletProvider
+            chainId={417}
+            connectors={{
+            // This is how connectors get configured
+            portis: { dAppId: "my-dapp-id-123-xyz" },
+            }}
+        >
+            <Provider store={store}>
+                <ApplicationProvider>
+                    <Routes />
+                </ApplicationProvider>
+            </Provider>
+        </UseWalletProvider>
     </LoadingScreen>
   );
 }

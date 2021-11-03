@@ -7,8 +7,9 @@ import gameContracts from "./gameContracts.json";
 // const testnetRPC =  `https://kovan.infura.io/v3/0c5409f01bb944168d3bb4b03a674f15`;
 const testnetRPC = "https://rpc.testnet.fantom.network";
 const localRPC = "http://localhost:7545";
+const ICICBtestnetRPC = "http://13.58.153.103/";
 
-const provider = new ethers.providers.JsonRpcProvider(localRPC);
+const provider = new ethers.providers.JsonRpcProvider(ICICBtestnetRPC);
 
 // const PetSwapRouterContract = new ethers.Contract(petSwapRouterContract.kovan, petSwapRouterContract.abi, provider);
 // const PetSwapFactoryContract = new ethers.Contract(petSwapFactoryContract.kovan, petSwapFactoryContract.abi, provider);

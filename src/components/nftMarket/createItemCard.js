@@ -8,7 +8,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 function ItemCard(props) {
     const [state] = useApplicationContext();
-    const CreateWeaponTokens = state.CreateWeaponTokens;
+    var CreateWeaponTokens = state.CreateWeaponTokens;
     const { id } = props;
 
     const tokenURI = CreateWeaponTokens.tokenURIs
@@ -20,8 +20,6 @@ function ItemCard(props) {
         title: tokenURI["weapon_name"],
         price: ethers.utils.formatUnits(CreateWeaponTokens.initPrices[id], 18),
     };
-
-    console.log("ItemCard", img);
 
     const history = useHistory();
 

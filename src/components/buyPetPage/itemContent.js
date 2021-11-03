@@ -177,7 +177,7 @@ function ItemContent(props){
 
     
     return(
-        <div className = "x-eggBuyPage">
+        <div className = "x-weaponCreatePage">
             <AlertModal title = {alertInfos.title} info = {alertInfos.info} open = {alertOpen} handleClose = {handleClose}/>
             <Grid container>
                 <Grid item xs={12} sm={12} md={6} className = "BuyCard-infos">

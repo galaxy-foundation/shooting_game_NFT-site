@@ -6,6 +6,9 @@ import frame2 from "../../assets/img/shooting/frame2.jpg";
 import frame3 from "../../assets/img/shooting/frame3.jpg";
 import frame4 from "../../assets/img/shooting/frame4.jpg";
 import frame5 from "../../assets/img/shooting/frame5.jpg";
+import frame6 from "../../assets/img/shooting/frame6.jpg";
+import frame7 from "../../assets/img/shooting/frame7.jpg";
+import frame8 from "../../assets/img/shooting/frame8.jpg";
 
 function CharactSlide() {
   const images = [
@@ -29,6 +32,18 @@ function CharactSlide() {
       original: frame5,
       thumbnail: frame5,
     },
+    {
+      original: frame6,
+      thumbnail: frame6,
+    },
+    {
+      original: frame7,
+      thumbnail: frame7,
+    },
+    {
+      original: frame8,
+      thumbnail: frame8,
+    },
   ];
 
   return (
@@ -44,6 +59,7 @@ function CharactSlide() {
             showThumbnails={true}
             thumbnailPosition="bottom"
             items={images}
+            lazyLoad = {true}
           />
         </div>
       </div>

@@ -8,6 +8,8 @@ import {Grid} from '@material-ui/core';
 
 import {useEffect,useState} from 'react'
 import {useApplicationContext} from "../../contexts"
+import {useHistory} from 'react-router-dom';
+
 import {
     MuiPickersUtilsProvider,
     KeyboardTimePicker,
@@ -19,12 +21,14 @@ import AlertModal from "../alertModal"
 
 import { useWallet } from 'use-wallet'
 import {ethers} from 'ethers';
-// import {PetContract,MarketPlaceContract} from "../../contract"
+// import {WeaponNFT,MarketPlace} from "../../contract"
+import { WeaponNFT ,MarketPlace} from "../../contract";
 
 const OnsaleCard = (props)=>{
     
     const wallet = useWallet();
-    const [state,{petTokenUpdate}] = useApplicationContext();
+    const history = useHistory();
+    const [state,{weaponTokenUpdate}] = useApplicationContext();
 
     const {tokenID} = props;
     const [price, setPrice] = useState(200);
@@ -35,22 +39,38 @@ const OnsaleCard = (props)=>{
     const [alertOpen, setAlertOpen] = useState(false);
     const [alertInfos, setAlertInfos] = useState({title:"text",info:"error"});
 
-    async function getAllowance() {
-        const provider = new ethers.providers.Web3Provider(wallet.ethereum);
-        const signer =await provider.getSigner();
+    const [signer, setSigner] = useState();
 
-        //sigend contracts
-        var signedPetContract = PetContract.connect(signer);
-        var allowance =await signedPetContract.getApproved(tokenID)
-        .catch((err) => {
-            console.error(err);
-        });
-
-        if(allowance.toUpperCase() === MarketPlaceContract.address.toUpperCase()) {
-            setAllowance(true);
+    const checkProvider = async () => {
+        if(wallet.status == "connected") {
+            const provider = new ethers.providers.Web3Provider(wallet.ethereum);
+            const signer =await provider.getSigner();
+            setSigner(signer);
         }
-        else {
-            setAllowance(false);
+    }
+
+    useEffect(() => {
+        checkProvider();
+    },[wallet.status]);
+
+    async function getAllowance() {
+        try {
+            //sigend contracts
+            
+            const provider = new ethers.providers.Web3Provider(wallet.ethereum);
+            const signer =await provider.getSigner();
+            setSigner(signer);
+            var signedWeaponNFT = WeaponNFT.connect(signer);
+            var allowance =await signedWeaponNFT.getApproved(tokenID);
+
+            if(allowance.toUpperCase() === MarketPlace.address.toUpperCase()) {
+                setAllowance(true);
+            }
+            else {
+                setAllowance(false);
+            }
+        }catch(err){
+            console.error("onsale Card: getAllowance " ,err);
         }
     }
 
@@ -67,12 +87,9 @@ const OnsaleCard = (props)=>{
             
             setLoading(true);
     
-            const provider = new ethers.providers.Web3Provider(wallet.ethereum);
-            const signer =await provider.getSigner();
-    
             //sigend contracts
-            var signedPetContract = PetContract.connect(signer);
-            var tx = await signedPetContract.approve(MarketPlaceContract.address,tokenID)
+            var signedWeaponNFT = WeaponNFT.connect(signer);
+            var tx = await signedWeaponNFT.approve(MarketPlace.address,tokenID)
             .catch((err)=>{
                 setAlertInfos({title:"Approve Error",info:"OOPS, Approve failed!"});
                 setAlertOpen(true);
@@ -92,24 +109,24 @@ const OnsaleCard = (props)=>{
             
                 setLoading(true);
         
-                const provider = new ethers.providers.Web3Provider(wallet.ethereum);
-                const signer =await provider.getSigner();
-                
                 var seconds = Math.floor(date.getTime() / 1000);
-        
-                //sigend contracts
-                var marketplaceContract = MarketPlaceContract.connect(signer);
-                var tx = await marketplaceContract.createOrder(PetContract.address,tokenID,ethers.utils.parseUnits(price.toString()),seconds)
-                .catch((err)=>{
-                    setAlertInfos({title:"Onsale Error",info:"OOPS, Onsale error"});
-                    setAlertOpen(true);
-                    setLoading(false);
-                })
-                if(tx!=null){
+                
+                try {
+                    //sigend contracts
+                    var marketPlace = MarketPlace.connect(signer);
+                    var tx = await marketPlace.createOrder(WeaponNFT.address,tokenID,ethers.utils.parseUnits(price.toString()),seconds);
                     await tx.wait();
                     setLoading(false);
                     handleClose();
-                    await petTokenUpdate();
+                                
+                    history.push(`/my-items/items`);
+                    await weaponTokenUpdate();
+                    
+                }catch(err){
+                    setAlertInfos({title:"Onsale Error",info:"OOPS, Onsale error"});
+                    setAlertOpen(true);
+                    setLoading(false);
+                    console.log("handleOnsale err : ",err);
                 }
             }
         }

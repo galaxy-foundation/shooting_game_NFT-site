@@ -9,7 +9,7 @@ function NftMarket(props) {
 
   var router = props.match.params.id;
   console.log("router", router);
-  if (router === undefined || router == null) {
+  if (router === undefined || router === null) {
     history.push("/nft-marketplace/create");
   }
 
