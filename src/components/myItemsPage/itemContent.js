@@ -30,9 +30,20 @@ function ItemContent(props){
         ? JSON.parse(MyWeaponTokens.tokenURIs[id])
         : {};
 
-    const {img,title,tokenID} = {
+    
+    const {
+        img,title,tokenID,bid,bidHistory,damage,Accurancy,
+        FireRate,Range,ReloadTime,Weight
+    } = 
+        {
         img : tokenURI["image"],
         title : tokenURI["name"],
+        damage : tokenURI["Damage"],
+        Accurancy : tokenURI["Accurancy"],
+        FireRate : tokenURI["FireRate"],
+        Range : tokenURI["Range"],
+        ReloadTime : tokenURI["ReloadTime"],
+        Weight : tokenURI["Weight"],
         tokenID : MyWeaponTokens.tokenIDs?MyWeaponTokens.tokenIDs[id]:""
     };
     
@@ -48,7 +59,7 @@ function ItemContent(props){
     const InfoField = (props)=>{
         const {title,info} = props;
         return(
-            <div className = "x-buyCard-infoField">
+            <div className = "x-buyCard-infoField-1">
                 <Grid container >
                     <Grid item xs={5} sm={5} md={6}>
                         <span className = "y-font1-bold">{title}</span>
@@ -74,6 +85,13 @@ function ItemContent(props){
                 <Grid item xs={12} sm={12} md={6} className = "BuyCard-infos">
                     <div className = "x-BuyCard-InfoList">
                         <InfoField title = "Name" info = {title}/>
+                        <InfoField title = "damage" info = {damage}/>
+                        <InfoField title = "Accurancy" info = {Accurancy}/>
+                        <InfoField title = "FireRate" info = {FireRate}/>
+                        <InfoField title = "Range" info = {Range}/>
+                        <InfoField title = "ReloadTime" info = {ReloadTime}/>
+                        <InfoField title = "Weight" info = {Weight}/>
+                        <InfoField title = "Name" info = {title}/>
                     </div>
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}>
@@ -86,7 +104,7 @@ function ItemContent(props){
                         width="100%"
                         style={{ borderRadius: "5px" }}
                         >
-                            {/*<source src={img} type="video/mp4" /> */}
+                            {/*<source src={img} type="video/mp4" />*/} 
                         </video>
                     </div>
                     <div className = "x-buyCard-button-field-pet">

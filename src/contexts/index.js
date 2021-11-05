@@ -251,17 +251,33 @@ export default function Provider({ children }) {
             });
 
             //marketOrder
-            var orders = await MarketPlace.getOrderByAssetIds(
+            var ordersPromise = MarketPlace.getOrderByAssetIds(
                 WeaponNFT.address,
                 tokenIDs
             );
-            updateMarketPlaceWeaponTokens({
-                creators,
-                owners,
-                tokenURIs,
-                tokenIDs,
-                orders,
-            });
+
+            var bidsPromise = MarketPlace.getBidByAssetIds(
+                WeaponNFT.address,
+                tokenIDs
+            );
+
+            var bidHistorysPromise = MarketPlace.getBidHistoryByAssetIds(
+                WeaponNFT.address,
+                tokenIDs
+            );
+
+            Promise.all([ordersPromise,bidsPromise,bidHistorysPromise]).then((values)=>{
+                updateMarketPlaceWeaponTokens({
+                    creators,
+                    owners,
+                    tokenURIs,
+                    tokenIDs,
+                    orders:values[0],
+                    bids:values[1],
+                    bidHistorys:values[2]
+                });
+            })
+
         } catch (err) {
             console.log(err);
         }
@@ -275,6 +291,8 @@ export default function Provider({ children }) {
             var tokenURIs = [];
             var tokenIDs = [];
             var orders = [];
+            var bids = [];
+            var bidHistorys = [];
 
             const MARKETWeaponTokens = state.MARKETWeaponTokens;
             MARKETWeaponTokens.orders.map((order, index) => {
@@ -284,6 +302,8 @@ export default function Provider({ children }) {
                     tokenURIs.push(MARKETWeaponTokens.tokenURIs[index]);
                     tokenIDs.push(index);
                     orders.push(MARKETWeaponTokens.orders[index]);
+                    bids.push(MARKETWeaponTokens.bids[index]);
+                    bidHistorys.push(MARKETWeaponTokens.bidHistorys[index]);
                 }
             });
 
@@ -293,6 +313,8 @@ export default function Provider({ children }) {
                 tokenURIs,
                 tokenIDs,
                 orders,
+                bids,
+                bidHistorys
             });
         } catch (err) {
             console.log(err);

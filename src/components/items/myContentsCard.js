@@ -11,7 +11,7 @@ function ItemCard(props){
     //context data
     const [state] = useApplicationContext();
     var MyWeaponTokens = state.MyWeaponTokens;
-
+    
     const tokenURI = MyWeaponTokens.tokenURIs
         ? JSON.parse(MyWeaponTokens.tokenURIs[id])
         : {};
@@ -25,6 +25,14 @@ function ItemCard(props){
     const handleClick = () => {
         history.push(`/my-items/items/${id}`);
     }
+
+    const [isLoading, setLoading] = useState(true);
+
+    useEffect(()=>{
+        if(!isLoading)
+            alert("video loaded")
+    },[isLoading])
+
     return(
         <div className = "x-nft-itemCard" onClick = {handleClick}>
         <div className="x-nft-itemCard-video">
@@ -35,8 +43,11 @@ function ItemCard(props){
                 alt="nft-item"
                 width="100%"
                 style={{ borderRadius: "5px" }}
+                onLoadedData={() => {
+                    setLoading(false)
+                }}
             >
-                {/*<source src={img} type="video/mp4" /> */}
+                <source src={img} type="video/mp4" />
             </video>
         </div>
         <div className = "x-nft-itemCard-info">

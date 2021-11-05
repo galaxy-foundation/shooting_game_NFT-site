@@ -36,10 +36,10 @@ function ItemCard(props) {
                         loop
                         muted
                         alt="nft-item"
-                        height="100%"
+                        width="100%"
                         style={{ borderRadius: "5px" }}
                     >
-                        {/*<source src={img} type="video/mp4" /> */}
+                        {/*<source src={img} type="video/mp4" />*/} 
                     </video>
                 </div>
                 <div className="x-nft-itemCard-info">

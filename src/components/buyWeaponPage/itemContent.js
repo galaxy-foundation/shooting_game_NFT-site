@@ -11,12 +11,14 @@ import assert from "assert";
 import {useHistory} from 'react-router-dom';
 
 import {delay} from "../utils";
+import BidCard from "./bidCard";
 
 function ItemContent(props){
     const history = useHistory();
 	const [status] = useState(props.router);
 	const [state,{tokenUpdates}] = useApplicationContext();
 	const [ isReady, setIsReady] = useState(false);
+    const [onsaleAlertOpen, setOnsaleAlertOpen] = useState(false);
 
 	const marketWeaponTokens = state.MARKETWeaponTokens;
 
@@ -111,11 +113,67 @@ function ItemContent(props){
             history.push(`/nft-marketplace/weapons`);
             
         }catch (err) {
-            setAlertInfos({title:"Failed!",info:`Buy weapon failed`});
+            let errMSG = err.data&&err.data.message?err.data.message:"Buy weapon failed";
+            setAlertInfos({title:"Failed!",info:errMSG});
             setAlertOpen(true);
             setLoading(false);
             setLoading(false);
             console.log("Create Weapon failed");
+        }
+    }
+
+    // bids
+    
+	const handleBid = async(bidAmount,expiredTime) => {
+		if(wallet.status === "connected"){
+			setLoading(true);
+			try{
+				//sigend contracts
+				var signedAtariToken = AtariToken.connect(signer);
+
+				var weaponPrice = ethers.utils.parseUnits(bidAmount.toString());
+				//allowance check
+				var allowance =await signedAtariToken.allowance(userAddress,MarketPlace.address);
+
+				if(Number(allowance  )<Number(weaponPrice.toString())) {
+					var tx = await signedAtariToken.approve(MarketPlace.address,weaponPrice.mul(1000))
+					await tx.wait();
+                    await BidWeapon(weaponPrice,expiredTime);
+				}
+				else {
+                    await BidWeapon(weaponPrice,expiredTime);
+				} 
+			}catch(err) {
+                let errMSG =  err.data&&err.data.message?err.data.message:"user denied approve";
+                setAlertInfos({title:"Approve Failed!",info:errMSG});
+				setAlertOpen(true);
+				setLoading(false);
+				console.log(err);
+			}
+		}
+	}
+
+    const BidWeapon = async (weaponPrice,expiredTime) => {
+        try {
+            var signedMarketPlace = MarketPlace.connect(signer);
+            var tx = await signedMarketPlace.PlaceBid(WeaponNFT.address,marketWeaponTokens.tokenIDs[status],weaponPrice,expiredTime);
+            var res = await tx.wait();
+            let sumEvent = res.events.pop();
+            let id = sumEvent.args[2];
+            setAlertInfos({title:"Success!",info:`you Bid Weapon with Id ${String(id)}`});
+            setAlertOpen(true);
+            setLoading(false);
+            tokenUpdates()
+
+            await delay(2000);
+            history.push(`/nft-marketplace/weapons`);
+            
+        }catch (err) {
+            let errMSG =  err.data&&err.data.message?err.data.message:"Bid weapon failed";
+            setAlertInfos({title:"Failed!",info:errMSG});
+            setAlertOpen(true);
+            setLoading(false);
+            console.log("Bid Weapon failed");
         }
     }
 
@@ -135,15 +193,23 @@ function ItemContent(props){
 		);
 	};
 
+    const handleBidAlert = ()=>{
+        setOnsaleAlertOpen(true);
+    }
+
+    const handleBidAlertClose = ()=>{
+        setOnsaleAlertOpen(false);
+    }
+
 	return (
 		<div className="x-weaponCreatePage">
+            <AlertModal title = {"ON SALE"} info = {<BidCard handleBid = {handleBid} />} open = {onsaleAlertOpen} handleClose = {handleBidAlertClose}/>
 			<AlertModal
 				title={alertInfos.title}
 				info={alertInfos.info}
 				open={alertOpen}
 				handleClose={handleClose}
 			/>
-
 			{isReady ? (
 				<Grid container>
 					<Grid xs={12} sm={12} md={6}>
@@ -156,7 +222,7 @@ function ItemContent(props){
 								width="100%"
 								style={{ borderRadius: "5px" }}
 							>
-								{/*<source src={img} type="video/mp4" /> */}
+								{/*<source src={img} type="video/mp4" />*/} 
 							</video>
 						</div>
 					</Grid>
@@ -166,7 +232,23 @@ function ItemContent(props){
 							<InfoField title="Price" info={price + "ATRI"} />
 							<InfoField title="power" info="0" />
 						</div>
+                        <div className="x-BuyCard-InfoList">
+							<InfoField title="Category" info={title} />
+							<InfoField title="Price" info={price + "ATRI"} />
+							<InfoField title="power" info="0" />
+						</div>
 						<div className="x-buyCard-button-field">
+                        <Grid container>
+                            <Grid xs={12} sm={6} md={6} >
+                            <button className="x-buyCard-button" onClick={handleBidAlert}>
+								{loading === true ? (
+									<img src={LoadingImg} alt="loading" width="60px" />
+								) : (
+									"BID"
+								)}
+							</button>
+                            </Grid>
+                            <Grid xs={12} sm={6} md={6} >
 							<button className="x-buyCard-button" onClick={handleBuy}>
 								{loading === true ? (
 									<img src={LoadingImg} alt="loading" width="60px" />
@@ -174,6 +256,8 @@ function ItemContent(props){
 									"Buy"
 								)}
 							</button>
+                            </Grid>
+                            </ Grid>
 						</div>
 					</Grid>
 				</Grid>

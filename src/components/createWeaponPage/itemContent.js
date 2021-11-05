@@ -144,7 +144,7 @@ function ItemContent(props){
 								width="100%"
 								style={{ borderRadius: "5px" }}
 							>
-								{/*<source src={img} type="video/mp4" /> */}
+								{/*<source src={img} type="video/mp4" />*/} 
 							</video>
 						</div>
 					</Grid>

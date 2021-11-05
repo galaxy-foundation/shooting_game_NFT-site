@@ -746,7 +746,9 @@ body {
 }
 
 .x-nft-itemCard-video {
-  height: 190px;
+    position: relative;
+    overflow: hidden;
+    height: 230px;
 }
 
 
@@ -789,9 +791,21 @@ body {
 
 .x-nft-item-image {
   padding: 20px;
+  height: 600px;
+}
+
+.height-3 {
+    height :350px;
 }
 
 @media only screen and (max-width: 768px) {
+
+    
+    .x-nft-item-image {
+        padding: 20px;
+        height: 500px;
+    }
+
   .x-breed-card {
     position: relative;
     height: 300px;
@@ -1033,12 +1047,12 @@ body {
 }
 
 .x-BuyCard-InfoList {
-  padding-top: 40px;
+  margin-top: 20px;
 }
 .x-buyCard-infoField {
   width: 80%;
   margin: auto;
-  padding: 10px;
+  padding-top: 4px;
 }
 .x-buyCard-infoField-1 {
   width: 80%;
@@ -1063,6 +1077,7 @@ body {
 
 .BuyCard-infos {
   position: relative;
+  height: 700px;
 }
 .x-buyCard-button-field {
   position: absolute;
@@ -1086,12 +1101,19 @@ body {
 }
 
 @media only screen and (max-width: 1000px) {
+
+    .BuyCard-infos {
+    position: relative;
+    height: 500px;
+    }
+
   .x-weaponCreatePage {
     width: 95%;
   }
 
   .x-buyCard-infoField {
     width: 100%;
+    margin: auto;
   }
 
   .x-buyCard-button-field {
@@ -1102,24 +1124,24 @@ body {
   }
 }
 .x-buyCard-button {
-  width: 100%;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-family: "Exo 2", sans-serif;
-  font-weight: 700;
-  font-size: 35px;
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  color: #ffffff;
-  background-color: #3dd28d;
-  border: none;
-  border-radius: 20px;
-  line-height: 3em;
-  box-shadow: 0 0 0 0 transparent;
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+    width: 80%;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Exo 2", sans-serif;
+    font-weight: 700;
+    font-size: 35px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    color: #ffffff;
+    background-color: #3dd28d;
+    border: none;
+    border-radius: 20px;
+    line-height: 3em;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
 }
 .x-buyCard-button:hover {
   color: white;
@@ -1300,3 +1322,38 @@ img {
     user-drag: none;
     -webkit-touch-callout: none;
 }
+
+
+.border-top {
+    border-top: 1px solid;
+}
+
+.video {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.video-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: opacity 400ms ease 0ms;
+}
+.tiny {
+    filter: blur(20px);
+    transform: scale(1.1);
+    transition: visibility 0ms ease 400ms;
+}
+
+.video {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
