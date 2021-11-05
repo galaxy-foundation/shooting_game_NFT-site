@@ -22,7 +22,7 @@ function ItemContent(props){
     const [state] = useApplicationContext();
     var MyWeaponTokens = state.MyWeaponTokens;
     
-    if(!MyWeaponTokens.tokenURIs[id]) {
+    if(MyWeaponTokens.tokenURIs[id] === undefined) {
         console.log(MyWeaponTokens.tokenURIs[id])
         history.push(`/my-items/items`);
     }
@@ -32,7 +32,7 @@ function ItemContent(props){
 
     const {img,title,tokenID} = {
         img : tokenURI["image"],
-        title : tokenURI["weapon_name"],
+        title : tokenURI["name"],
         tokenID : MyWeaponTokens.tokenIDs?MyWeaponTokens.tokenIDs[id]:""
     };
     
@@ -86,7 +86,7 @@ function ItemContent(props){
                         width="100%"
                         style={{ borderRadius: "5px" }}
                         >
-                            <source src={img} type="video/mp4" />
+                            {/*<source src={img} type="video/mp4" /> */}
                         </video>
                     </div>
                     <div className = "x-buyCard-button-field-pet">

@@ -154,7 +154,7 @@ const OnsaleCard = (props)=>{
             <TextField 
                 label="Price"
                 InputProps={{
-                    endAdornment: <InputAdornment position="end">PWC</InputAdornment>,
+                    endAdornment: <InputAdornment position="end">ATRI</InputAdornment>,
                 }}
                 onChange = {handlePrice} 
                 value = {price}

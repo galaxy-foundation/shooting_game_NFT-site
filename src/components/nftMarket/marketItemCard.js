@@ -3,6 +3,7 @@ import itemImg from '../../assets/img/nftMarket/item1.jpg';
 import avatarImg from '../../assets/img/nftMarket/avatar.jpg';
 import {useHistory} from 'react-router-dom';
 import {useApplicationContext} from "../../contexts"
+import {fromBigNum} from "../utils"
 
 function ItemCard(props){
     const {id} = props;
@@ -20,12 +21,12 @@ function ItemCard(props){
     
     const {img,title,tokenID} = {
         img : tokenURI["image"],
-        title : tokenURI["weapon_name"],
+        title : tokenURI["name"],
         tokenID : MarketplaceMarketInfos.tokenIDs?MarketplaceMarketInfos.tokenIDs[id]:""
     };
 
     const handleClick = () => {
-        history.push(`/nft-marketplace/pets/${tokenID}`);
+        history.push(`/nft-marketplace/onsales/${id}`);
     }
 
     return(
@@ -36,23 +37,25 @@ function ItemCard(props){
                 loop
                 muted
                 alt="nft-item"
-                width="100%"
+                height="100%"
                 style={{ borderRadius: "5px" }}
             >
-                <source src={img} type="video/mp4" />
+                {/*<source src={img} type="video/mp4" /> */}
             </video>
         </div>
         <div className = "x-nft-itemCard-info">
-                <div>
-                    <span className = "x-font6">{title}</span>
-                    <span className = "x-font6 float-right">GENE {title}</span>
-                </div>
-                <div className = "mt-2">
-                <span className = "x-font6 ">Price </span>
-                <span className = "x-font6 float-right">{order.price} </span>
-                </div>
+            <div>
+                <span className = "x-font6">{title}</span>
+                <span className = "x-font6 float-right"> {fromBigNum(order.price,18)} ATRI</span>
+            </div>
+            <div className = "mt-2">
+            <span className = "x-font6 ">ID </span>
+            <span className = "x-font6 float-right">{tokenID} </span>
             </div>
         </div>
+        <div className = "spacer-2"></div>
+        </div>
+        
     )
 }
 

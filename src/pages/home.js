@@ -6,9 +6,7 @@ import Nav from "../components/layout/nav";
 import BottomSection from "../components/home/bottom";
 import CharactSlide from "../components/home/character-slide";
 import GameIntro from "../components/home/gameintro";
-import defiVideo from "../assets/video/video.mp4";
 import splitImg from "../assets/img/shooting/split_symbol.png";
-import game_screen from "../assets/img/shooting/game_screen.png";
 // import {Grid} from '@material-ui/core';
 // import { Link } from "react-router-dom";
 
@@ -19,7 +17,7 @@ function Home() {
         <Nav />
         <div className="x-home-top-video" style={{ zIndex: "-1" }}>
           <video autoPlay loop muted width="100%" height="90%">
-            <source src={defiVideo} type="video/mp4" />
+            {/* <source src={defiVideo} type="video/mp4" /> */}
           </video>
           <div className="x-home-top-img">
             <div className="home-card">

@@ -30,6 +30,7 @@
     "react-loading-skeleton": "^3.0.1",
     "react-material-ui-carousel": "^2.3.1",
     "react-notifications": "^1.7.2",
+    "react-notifications-component": "^3.1.0",
     "react-number-format": "^4.6.4",
     "react-redux": "^7.2.4",
     "react-responsive-carousel": "^3.2.22",

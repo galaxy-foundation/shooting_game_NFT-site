@@ -4,37 +4,41 @@ import { useEffect, useState } from "react";
 import { useApplicationContext } from "../../contexts";
 import { useWallet } from "use-wallet";
 import { ethers } from "ethers";
-import { AtariToken, WeaponNFT } from "../../contract";
+import { AtariToken, WeaponNFT, MarketPlace } from "../../contract";
 import LoadingImg from "../../assets/img/box.gif";
 import AlertModal from "../alertModal";
 import assert from "assert";
+import {useHistory} from 'react-router-dom';
+
+import {delay} from "../utils";
 
 function ItemContent(props){
+    const history = useHistory();
 	const [status] = useState(props.router);
 	const [state,{tokenUpdates}] = useApplicationContext();
 	const [ isReady, setIsReady] = useState(false);
 
-	const CreateWeaponTokens = state.CreateWeaponTokens;
+	const marketWeaponTokens = state.MARKETWeaponTokens;
 
 	const [tokenURI, setTokenURI] = useState({});
 
 	useEffect(() => {
         var tokenURI = 
-            CreateWeaponTokens.tokenURIs&&CreateWeaponTokens.tokenURIs[status]?
-            JSON.parse(CreateWeaponTokens.tokenURIs[status])
+            marketWeaponTokens.tokenURIs&&marketWeaponTokens.tokenURIs[status]?
+            JSON.parse(marketWeaponTokens.tokenURIs[status])
             :{};
         setTokenURI(tokenURI);
-	},[CreateWeaponTokens.tokenURIs])
+	},[marketWeaponTokens.tokenURIs])
 	
 	const {img,title,price} = {
 			img : tokenURI["image"],
 			title : tokenURI["name"],
-			price : CreateWeaponTokens&&CreateWeaponTokens.initPrices[status]?ethers.utils.formatUnits(CreateWeaponTokens.initPrices[status],18):0,
+			price : marketWeaponTokens&&marketWeaponTokens.orders[status]?ethers.utils.formatUnits(marketWeaponTokens.orders[status].price,18):0,
 	};
 
 	useEffect(()=>{
-			setIsReady(CreateWeaponTokens.tokenURIs !== undefined&&CreateWeaponTokens.tokenURIs[status])
-	},[CreateWeaponTokens.tokenURIs])
+			setIsReady(marketWeaponTokens.tokenURIs !== undefined&&marketWeaponTokens.tokenURIs[status])
+	},[marketWeaponTokens.tokenURIs])
 
 	const [loading, setLoading] = useState(false);
 	const [alertInfos, setAlertInfos] = useState({title:"text",info:"error"});
@@ -68,19 +72,18 @@ function ItemContent(props){
 			try{
 				//sigend contracts
 				var signedAtariToken = AtariToken.connect(signer);
-				var signedWeaponNFT = WeaponNFT.connect(signer);
 
 				var weaponPrice = ethers.utils.parseUnits(price.toString());
 				//allowance check
-				var allowance =await signedAtariToken.allowance(userAddress,signedWeaponNFT.address);
+				var allowance =await signedAtariToken.allowance(userAddress,MarketPlace.address);
 
 				if(Number(allowance  )<Number(weaponPrice.toString())) {
-					var tx = await signedAtariToken.approve(signedWeaponNFT.address,weaponPrice.mul(1000))
+					var tx = await signedAtariToken.approve(MarketPlace.address,weaponPrice.mul(1000))
 					await tx.wait();
-                    CreateWeapon();
+                    BuyWeapon();
 				}
 				else {
-                    CreateWeapon();
+                    BuyWeapon();
 				} 
 			}catch(err) {
 				setAlertInfos({title:"Approve rejected",info:"user denied approve"});
@@ -91,18 +94,27 @@ function ItemContent(props){
 		}
 	}
 
-    const CreateWeapon = async () => {
+    const BuyWeapon = async () => {
         try {
-            var signedWeaponNFT = WeaponNFT.connect(signer);
-            var tx = await signedWeaponNFT.create(status);
+            var weaponPrice = ethers.utils.parseUnits(price.toString());
+            var signedMarketPlace = MarketPlace.connect(signer);
+            var tx = await signedMarketPlace.Buy(WeaponNFT.address,marketWeaponTokens.tokenIDs[status],weaponPrice);
             var res = await tx.wait();
             let sumEvent = res.events.pop();
-            let id = sumEvent.args[2];
-            setAlertInfos({title:"Success!",info:`you get new Weapon with Id ${id}`});
+            let id = sumEvent.args[1];
+            setAlertInfos({title:"Success!",info:`you get new Weapon with Id ${String(id)}`});
             setAlertOpen(true);
             setLoading(false);
-            tokenUpdates();
+            tokenUpdates()
+
+            await delay(2000);
+            history.push(`/nft-marketplace/weapons`);
+            
         }catch (err) {
+            setAlertInfos({title:"Failed!",info:`Buy weapon failed`});
+            setAlertOpen(true);
+            setLoading(false);
+            setLoading(false);
             console.log("Create Weapon failed");
         }
     }
@@ -168,6 +180,8 @@ function ItemContent(props){
 			) : (
 				""
 			)}
+            
+        <div className = "spacer-2"></div>
 		</div>
 	);
 }

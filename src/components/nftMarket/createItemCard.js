@@ -17,7 +17,7 @@ function ItemCard(props) {
 
     const { img, title, price } = {
         img: tokenURI["image"],
-        title: tokenURI["weapon_name"],
+        title: tokenURI["name"],
         price: ethers.utils.formatUnits(CreateWeaponTokens.initPrices[id], 18),
     };
 
@@ -36,10 +36,10 @@ function ItemCard(props) {
                         loop
                         muted
                         alt="nft-item"
-                        width="100%"
+                        height="100%"
                         style={{ borderRadius: "5px" }}
                     >
-                        <source src={img} type="video/mp4" />
+                        {/*<source src={img} type="video/mp4" /> */}
                     </video>
                 </div>
                 <div className="x-nft-itemCard-info">

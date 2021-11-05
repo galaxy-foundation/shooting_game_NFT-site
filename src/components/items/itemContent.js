@@ -26,6 +26,8 @@ function ItemContent(props){
                 <ChocoButton text = "onsales" onClick = {onsaleButtonHandle}/>
             </div>
             {status === "onsales" ?<MyOnsaledContents />:<MyContents />}
+        
+        <div className = "spacer-2"></div>
         </div>
     )
 }

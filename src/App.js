@@ -9,7 +9,10 @@ import React, { useState, useEffect } from "react";
 import ApplicationProvider from "./contexts";
 import LoadingScreen from "react-loading-screen";
 import logoImg from "./assets/img/logo.png";
-import 'react-loading-skeleton/dist/skeleton.css'
+import 'react-loading-skeleton/dist/skeleton.css';
+import ReactNotification from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
+
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -34,6 +37,7 @@ function App() {
             portis: { dAppId: "my-dapp-id-123-xyz" },
             }}
         >
+            <ReactNotification />
             <Provider store={store}>
                 <ApplicationProvider>
                     <Routes />

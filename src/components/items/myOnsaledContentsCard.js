@@ -18,12 +18,12 @@ function ItemCard(props){
 
     const {img,title,tokenID} = {
         img : tokenURI["image"],
-        title : tokenURI["weapon_name"],
+        title : tokenURI["name"],
         tokenID : MyMARKETWeaponTokens.tokenIDs?MyMARKETWeaponTokens.tokenIDs[id]:""
     };
 
     const handleClick = () => {
-        history.push(`/my-items/items/${id}`);
+        history.push(`/my-items/onsales/${id}`);
     }
     return(
         <div className = "x-nft-itemCard" onClick = {handleClick}>
@@ -36,7 +36,7 @@ function ItemCard(props){
                 width="100%"
                 style={{ borderRadius: "5px" }}
             >
-                <source src={img} type="video/mp4" />
+                {/*<source src={img} type="video/mp4" /> */}
             </video>
         </div>
         <div className = "x-nft-itemCard-info">

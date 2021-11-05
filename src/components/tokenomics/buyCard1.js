@@ -13,7 +13,7 @@ import {ethers} from "ethers";
 function BuyCard1(){
     const wallet = useWallet();
     const [connected, setConnected] = useState(false);
-    const [token1, setToken1] = useState("PWC");
+    const [token1, setToken1] = useState("ATRI");
     const [token2, setToken2] = useState("BNB");
     const [tokenAddress1, setTokenAddress1] = useState("");
     const [tokenAddress2, setTokenAddress2] = useState("");
@@ -68,10 +68,10 @@ function BuyCard1(){
 
     // setTokenaddress
     useEffect(()=>{
-        var tokenAddress1 = token1=="PWC"? PetWorldCoin.address:WBNBAddress;
+        var tokenAddress1 = token1=="ATRI"? PetWorldCoin.address:WBNBAddress;
         setTokenAddress1(tokenAddress1);
 
-        var tokenAddress2 = token2=="PWC"? PetWorldCoin.address:WBNBAddress;
+        var tokenAddress2 = token2=="ATRI"? PetWorldCoin.address:WBNBAddress;
         setTokenAddress2(tokenAddress2);
 
         async function getBalances(){
@@ -84,8 +84,8 @@ function BuyCard1(){
                 var balance1 =ethers.utils.formatUnits(await signedPetWorldCoin.balanceOf(userAddress),16);
                 var balance2 =ethers.utils.formatUnits(await signer.getBalance());
 
-                setBalance1(token1==="PWC"? balance1:balance2) ;
-                setBalance2(token2==="PWC"? balance1:balance2) ;
+                setBalance1(token1==="ATRI"? balance1:balance2) ;
+                setBalance2(token2==="ATRI"? balance1:balance2) ;
 
                 console.log(balance1.toString(),balance2);
             }
@@ -145,7 +145,7 @@ function BuyCard1(){
         
         if(error===false){
             var path = [tokenAddress1,tokenAddress2];
-            //PWC decimals
+            //ATRI decimals
             var pairData = await PetSwapRouterContract.getAmountsOut(ethers.utils.parseUnits(amount1.toString()),path)
             .catch((err)=>{
                 console.log(err);
@@ -161,7 +161,7 @@ function BuyCard1(){
     const handleSwap = async ()=>{
         if(connected&&error===false){
             setLoading(true);
-            if(token1=="PWC"){
+            if(token1=="ATRI"){
                 await swapTokenToBNB().catch(()=>{
                     setLoading(false);
                 });

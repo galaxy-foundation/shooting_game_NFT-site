@@ -1,26 +1,26 @@
 import React from 'react';
 import Nav from '../components/layout/nav';
-import ItemContent from '../components/myItemsPage/itemContent';
+import ItemContent from '../components/myOnsalesPage/itemContent';
 import BottomSection from "../components/home/bottom";
 import {useHistory} from 'react-router-dom';
 
 import {useApplicationContext} from "../contexts"
-function ItemsPage(props){
+function OnsaledItemPage(props){
     var router = props.match.params.id;
     const history = useHistory();
     //context data
     const [state] = useApplicationContext();
-    var myWeaponTokens = state.MyWeaponTokens;
+    var myMARKETWeaponTokens = state.MyMARKETWeaponTokens;
 
-    if(router===undefined||myWeaponTokens.tokenIDs[router] === undefined){
-        console.log("myWeaponTokens.tokenIds",myWeaponTokens.tokenIDs[router])
-        history.push(`/my-items/items`);
+    if(router===undefined||myMARKETWeaponTokens.tokenIDs[router] === undefined){
+        console.log("myMARKETWeaponTokens.tokenIds",myMARKETWeaponTokens.tokenIds,router)
+        history.push(`/my-items/onsales`);
     }
 
     return(
         <div>
            <Nav />
-           {myWeaponTokens.tokenIDs[router] !== undefined?
+           {myMARKETWeaponTokens.tokenIDs[router] !== undefined?
                 <ItemContent router = {router}/>:""
             }
            <BottomSection />
@@ -28,4 +28,4 @@ function ItemsPage(props){
     )
 }
 
-export default ItemsPage;
+export default OnsaledItemPage;
