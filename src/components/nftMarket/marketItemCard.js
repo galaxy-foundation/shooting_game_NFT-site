@@ -41,7 +41,7 @@ function ItemCard(props){
             alt="thumb"
             style={{ opacity: isImgLoading ? 1 : 0 }}
         />
-        <video
+        {/*<video
             autoPlay
             loop
             muted
@@ -54,7 +54,7 @@ function ItemCard(props){
             src={img}
             type="video/mp4"
             className="video"
-        />
+        />*/}
         </div>
         <div className = "x-nft-itemCard-info">
             <div>

@@ -146,7 +146,7 @@ function ItemContent(props){
                             alt="thumb"
                             style={{ opacity: isImgLoading ? 1 : 0 }}
                         />
-                        <video
+                        {/*<video
                             autoPlay
                             loop
                             muted
@@ -159,7 +159,7 @@ function ItemContent(props){
                             src={img}
                             type="video/mp4"
                             className="video"
-                        />
+                        />*/}
 						</div>
 					</Grid>
 					<Grid xs={12} sm={12} md={6} className="BuyCard-infos">

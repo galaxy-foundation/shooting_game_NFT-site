@@ -165,7 +165,7 @@ function ItemContent(props){
                         alt="thumb"
                         style={{ opacity: isImgLoading ? 1 : 0 }}
                     />
-                    <video
+                    {/*<video
                         autoPlay
                         loop
                         muted
@@ -178,7 +178,7 @@ function ItemContent(props){
                         src={img}
                         type="video/mp4"
                         className="video"
-                    />
+                    />*/}
                     </div>
                     <div className = "x-buyCard-button-field-pet">
                         <button className = "x-buyCard-button" onClick={acceptBid}>{loading===true?(<img src ={LoadingImg} alt = "loading" width = "60px"/>):"Accep"}</button>
