@@ -9,6 +9,8 @@ import LoadingImg from "../../assets/img/box.gif";
 import AlertModal from "../alertModal";
 import assert from "assert";
 import {useHistory} from 'react-router-dom';
+import cover_image from "../../assets/img/shooting/cover_image.jpg"
+
 
 import {delay} from "../utils";
 import BidCard from "./bidCard";
@@ -201,6 +203,8 @@ function ItemContent(props){
         setOnsaleAlertOpen(false);
     }
 
+    const [isImgLoading, setImgLoading] = useState(true);
+
 	return (
 		<div className="x-weaponCreatePage">
             <AlertModal title = {"ON SALE"} info = {<BidCard handleBid = {handleBid} />} open = {onsaleAlertOpen} handleClose = {handleBidAlertClose}/>
@@ -214,16 +218,26 @@ function ItemContent(props){
 				<Grid container>
 					<Grid xs={12} sm={12} md={6}>
 						<div className="x-nft-item-image">
-							<video
-								autoPlay
-								loop
-								muted
-								alt="nft-item"
-								width="100%"
-								style={{ borderRadius: "5px" }}
-							>
-								{/*<source src={img} type="video/mp4" />*/} 
-							</video>
+                        <img
+                            src={cover_image}
+                            className="video-thumb tiny"
+                            alt="thumb"
+                            style={{ opacity: isImgLoading ? 1 : 0 }}
+                        />
+                        <video
+                            autoPlay
+                            loop
+                            muted
+                            alt="nft-item"
+                            width="100%"
+                            style={{ borderRadius: "5px" ,opacity: isImgLoading ? 0 : 1 }}
+                            onLoadedData={() => {
+                                setImgLoading(false)
+                            }}
+                            src={img}
+                            type="video/mp4"
+                            className="video"
+                        />
 						</div>
 					</Grid>
 					<Grid xs={12} sm={12} md={6} className="BuyCard-infos">

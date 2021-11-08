@@ -3,6 +3,7 @@ import itemImg from '../../assets/img/nftMarket/item1.jpg';
 import avatarImg from '../../assets/img/nftMarket/avatar.jpg';
 import {useHistory} from 'react-router-dom';
 import {useApplicationContext} from "../../contexts"
+import cover_image from "../../assets/img/shooting/cover_image.jpg"
 
 function ItemCard(props){
     const {id} = props;
@@ -16,8 +17,9 @@ function ItemCard(props){
         ? JSON.parse(MyWeaponTokens.tokenURIs[id])
         : {};
 
-    const {img,title,tokenID} = {
+    const {img,coverImage,title,tokenID} = {
         img : tokenURI["image"],
+        coverImage : tokenURI["coverImage"],
         title : tokenURI["name"],
         tokenID : MyWeaponTokens.tokenIDs?MyWeaponTokens.tokenIDs[id]:""
     };
@@ -28,27 +30,30 @@ function ItemCard(props){
 
     const [isLoading, setLoading] = useState(true);
 
-    useEffect(()=>{
-        if(!isLoading)
-            alert("video loaded")
-    },[isLoading])
 
     return(
         <div className = "x-nft-itemCard" onClick = {handleClick}>
         <div className="x-nft-itemCard-video">
+            <img
+                src={cover_image}
+                className="video-thumb tiny"
+                alt="thumb"
+                style={{ opacity: isLoading ? 1 : 0 }}
+            />
             <video
                 autoPlay
                 loop
                 muted
                 alt="nft-item"
                 width="100%"
-                style={{ borderRadius: "5px" }}
+                style={{ borderRadius: "5px" ,opacity: isLoading ? 0 : 1 }}
                 onLoadedData={() => {
                     setLoading(false)
                 }}
-            >
-                <source src={img} type="video/mp4" />
-            </video>
+                src={img}
+                type="video/mp4"
+                className="video"
+            />
         </div>
         <div className = "x-nft-itemCard-info">
                 <div>

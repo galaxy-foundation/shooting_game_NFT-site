@@ -3,7 +3,9 @@ import itemImg from '../../assets/img/nftMarket/item1.jpg';
 import avatarImg from '../../assets/img/nftMarket/avatar.jpg';
 import {useHistory} from 'react-router-dom';
 import {useApplicationContext} from "../../contexts"
-import {fromBigNum} from "../utils"
+import {fromBigNum} from "../utils";
+import cover_image from "../../assets/img/shooting/cover_image.jpg"
+
 
 function ItemCard(props){
     const {id} = props;
@@ -28,20 +30,31 @@ function ItemCard(props){
     const handleClick = () => {
         history.push(`/nft-marketplace/onsales/${id}`);
     }
+    const [isImgLoading, setImgLoading] = useState(true);
 
     return(
         <div className = "x-nft-itemCard" onClick = {handleClick}>
         <div className="x-nft-itemCard-video">
-            <video
-                autoPlay
-                loop
-                muted
-                alt="nft-item"
-                width="100%"
-                style={{ borderRadius: "5px" }}
-            >
-                {/*<source src={img} type="video/mp4" />*/} 
-            </video>
+        <img
+            src={cover_image}
+            className="video-thumb tiny"
+            alt="thumb"
+            style={{ opacity: isImgLoading ? 1 : 0 }}
+        />
+        <video
+            autoPlay
+            loop
+            muted
+            alt="nft-item"
+            width="100%"
+            style={{ borderRadius: "5px" ,opacity: isImgLoading ? 0 : 1 }}
+            onLoadedData={() => {
+                setImgLoading(false)
+            }}
+            src={img}
+            type="video/mp4"
+            className="video"
+        />
         </div>
         <div className = "x-nft-itemCard-info">
             <div>

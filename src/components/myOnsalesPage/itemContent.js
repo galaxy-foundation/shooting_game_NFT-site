@@ -11,7 +11,8 @@ import { ethers } from "ethers";
 import { AtariToken, WeaponNFT, MarketPlace } from "../../contract";
 
 import {delay} from "../utils";
-  
+import cover_image from "../../assets/img/shooting/cover_image.jpg"
+
 function ItemContent(props){
     var id = props.router;
     
@@ -148,6 +149,8 @@ function ItemContent(props){
     }
 
 
+    const [isImgLoading, setImgLoading] = useState(true);
+
     return(
         <div className = "x-weaponCreatePage">
         
@@ -156,16 +159,26 @@ function ItemContent(props){
                 
                 <Grid item xs={12} sm={12} md={6}>
                     <div className = "x-nft-item-image">
-                        <video
+                    <img
+                        src={cover_image}
+                        className="video-thumb tiny"
+                        alt="thumb"
+                        style={{ opacity: isImgLoading ? 1 : 0 }}
+                    />
+                    <video
                         autoPlay
                         loop
                         muted
                         alt="nft-item"
                         width="100%"
-                        style={{ borderRadius: "5px" }}
-                        >
-                            {/*<source src={img} type="video/mp4" />*/} 
-                        </video>
+                        style={{ borderRadius: "5px" ,opacity: isImgLoading ? 0 : 1 }}
+                        onLoadedData={() => {
+                            setImgLoading(false)
+                        }}
+                        src={img}
+                        type="video/mp4"
+                        className="video"
+                    />
                     </div>
                     <div className = "x-buyCard-button-field-pet">
                         <button className = "x-buyCard-button" onClick={acceptBid}>{loading===true?(<img src ={LoadingImg} alt = "loading" width = "60px"/>):"Accep"}</button>
