@@ -1,43 +1,33 @@
 import React from "react";
 import { Grid, Container, Paper } from "@material-ui/core";
+import footer1 from "../../assets/img/footer/1.png";
+import footer2 from "../../assets/img/footer/2.png";
+import footer3 from "../../assets/img/footer/3.png";
+import {useHistory} from 'react-router-dom';
 
 // import Footer from '../layout/footer';
 // import partnerTile from '../../assets/img/tilePartners.png';
 // import partnerContent from '../../assets/img/partnerContent.png';
 
 function Bottom() {
+  const history = useHistory();
+
+  const goto_signup = ()=>{
+    history.push(`/signup`);
+
+  }
   return (
     <div className="x-home-bottom">
-      <div className="x-home-newletter">
-        <span className="newlettertitle">NEWSLETTER</span>
-        <input type="text" placeholder="Enter Email Address" />
-        <button>Submit</button>
-      </div>
+     
       <div className="x-home-info">
-        <Container>
-          <div style={{ height: "10vh" }}></div>
-          <Grid
-            container
-            direction="row"
-            alignItems="center"
-            justifyContent="center"
-            className="x-home-info-skeleton"
-          >
-            <Grid item xl={3}>
-              <h3>Atari</h3>
-              <p></p>
-            </Grid>
-            <Grid item xl={3}>
-              <h3>Quick Links</h3>
-            </Grid>
-            <Grid item xl={3}>
-              <h3>Address</h3>
-            </Grid>
-            <Grid item xl={3}>
-              <h3>Follow Us</h3>
-            </Grid>
-          </Grid>
-        </Container>
+      <p></p>
+        
+        {/* <p>START OF LONG <span style={{fontWeight:'bold'}}>JOURNEY</span></p> */}
+        <img src={footer3}></img>
+        <div style={{marginTop:30}}>
+          <button onClick={goto_signup} className="x-signupBtn">SIGN UP</button>
+          <button className="x-PlayNowBtn">PLAY NOW</button>
+        </div>
       </div>
       <div>
         <p
@@ -48,9 +38,16 @@ function Bottom() {
             paddingLeft: "20%",
           }}
         >
-          Copyright &copy; 2020 <b style={{ color: "darkred" }}>Atari</b> All
-          Rights Reserved
+          
         </p>
+        <div className="footer_div">
+              <a>provacy polici</a>
+              <a>Term of service</a>
+              <a>support</a>
+              <a>follow us</a>
+          <p>powered by ICICb-group.com</p>
+
+          </div>
       </div>
     </div>
   );

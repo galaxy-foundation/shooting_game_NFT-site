@@ -53,7 +53,7 @@ function Footer(){
                     </div>
                     <div className = "mt-5">
                         <div className = "x-font1">
-                            Copyright © 2021 openpetworld.com
+                            Copyright11 © 2021 openpetworld.com1
                         </div>
                         <div className = "x-font1">
                             All rights reserved
