@@ -52,7 +52,6 @@ function reducer(state, { type, payload }) {
                 MyMARKETWeaponTokens: MyMARKETWeaponTokens,
             };
         }
-
         default: {
             throw Error(
                 `Unexpected action type in DataContext reducer: '${type}'.`

@@ -86,7 +86,7 @@ function ItemContent(props){
             <AlertModal title = {"ON SALE"} info = {<OnsaleCard tokenID = {tokenID}/>} open = {onsaleAlertOpen} handleClose = {handleOnsaleClose}/>
             <AlertModal title = {alertInfos.title} info = {alertInfos.info} open = {alertOpen} handleClose = {handleClose}/>
             <Grid container>
-                <Grid item xs={12} sm={12} md={6} className = "BuyCard-infos">
+                <Grid item xs={12} sm={12} md={6} className = "BuyCard-info s">
                     <div className = "x-BuyCard-InfoList">
                         <InfoField title = "Name" info = {title}/>
                         <InfoField title = "damage" info = {damage}/>
