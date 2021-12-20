@@ -16,7 +16,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "date-fns": "^2.8.1",
-    "ethers": "^5.4.2",
+    "ethers": "^5.5.1",
     "react": "^16.8.0",
     "react-alice-carousel": "^2.5.1",
     "react-bootstrap": "^1.6.1",

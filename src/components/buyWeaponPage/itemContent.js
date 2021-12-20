@@ -188,7 +188,7 @@ function ItemContent(props){
 						<span className="y-font1-bold">{title}</span>
 					</Grid>
 					<Grid xs={6} sm={6} md={6}>
-						<span className="y-font1-bold">{info}</span>
+						<span className="y-font2-bold">{info}</span>
 					</Grid>
 				</Grid>
 			</div>
@@ -252,34 +252,27 @@ function ItemContent(props){
 							<InfoField title="power" info="0" />
 						</div>
 						<div className="x-buyCard-button-field">
-                        <Grid container>
-                            <Grid xs={12} sm={6} md={6} >
-                            <button className="x-buyCard-button" onClick={handleBidAlert}>
-								{loading === true ? (
-									<img src={LoadingImg} alt="loading" width="60px" />
-								) : (
-									"BID"
-								)}
-							</button>
-                            </Grid>
-                            <Grid xs={12} sm={6} md={6} >
-							<button className="x-buyCard-button" onClick={handleBuy}>
+                           
+							<button className="x-buyCard-button buy" onClick={handleBuy}>
 								{loading === true ? (
 									<img src={LoadingImg} alt="loading" width="60px" />
 								) : (
 									"Buy"
 								)}
 							</button>
-                            </Grid>
-                            </ Grid>
+							<button className="x-buyCard-button bid" onClick={handleBidAlert}>
+								{loading === true ? (
+									<img src={LoadingImg} alt="loading" width="60px" />
+								) : (
+									"PLACE A BID"
+								)}
+							</button>
 						</div>
 					</Grid>
 				</Grid>
 			) : (
 				""
 			)}
-            
-        <div className = "spacer-2"></div>
 		</div>
 	);
 }

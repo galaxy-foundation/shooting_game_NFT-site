@@ -141,7 +141,7 @@ function ItemContent(props){
                         <span className = "y-font1-bold">{title}</span>
                     </Grid>
                     <Grid item xs={7} sm={7} md={6}>
-                        <span className = "y-font1-bold">{info}</span>
+                        <span className = "y-font2-bold">{info}</span>
                     </Grid>
                 </Grid>
             </div>

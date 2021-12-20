@@ -3,6 +3,7 @@ import {Grid} from '@material-ui/core';
 import ChocoButton from './smallChoco';
 import {useHistory} from 'react-router-dom';
 
+import avatar_default from '../../assets/img/avatar_default.png'
 // import EggContents from "./eggContents";
 import MyContents from "./myContents";
 import MyOnsaledContents from "./myOnsaledContents";
@@ -20,14 +21,24 @@ function ItemContent(props){
     }
 
     return(
-        <div className = "padding-top-4">
-            <div className = "text-center mt-4 mb-5">
-                <ChocoButton text = "items" onClick={itemButtonHandle}/>
-                <ChocoButton text = "onsales" onClick = {onsaleButtonHandle}/>
+        <div>
+            <div className="items_top_div">
             </div>
-            {status === "onsales" ?<MyOnsaledContents />:<MyContents />}
-        
-        <div className = "spacer-2"></div>
+            <div  style={{textAlign:'center'}}>
+                <img src={avatar_default} className="items_avatar"></img>
+                <p style={{fontSize:31, color:'white', marginTop:20}}>JOHN SHIT</p>
+                <p style={{fontSize:15, color:'white', marginBottom:100, fontWeight:100}}>
+                    <span style={{marginRight:80}}>SCORE:100</span>
+                    <span>FOLLOWER:100</span>
+
+                </p>
+                <div className = "text-center mt-4 mb-5">
+                    <ChocoButton text = "items" onClick={itemButtonHandle}/>
+                    <ChocoButton text = "onsales" onClick = {onsaleButtonHandle}/>
+                </div>
+                {status === "onsales" ?<MyOnsaledContents />:<MyContents />}
+            </div>
+            
         </div>
     )
 }

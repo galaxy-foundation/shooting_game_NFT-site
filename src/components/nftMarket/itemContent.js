@@ -22,7 +22,7 @@ function ItemContent(props) {
     <div className="padding-top-4">
         <div className="text-center mt-4 mb-5">
             <ChocoButton text="Create" onClick={createButtonHandle} />
-            <ChocoButton text="Market" onClick={weaponButtonHandle} />
+            <ChocoButton text="Marketplace" onClick={weaponButtonHandle} />
         </div>
         {status === "weapons" ? <MarketContents /> : <CreateContents />}
         <div className = "spacer-2"></div>

@@ -132,49 +132,53 @@ function Nav() {
 
     const desktopContent = (
         <div
-        className="x-navContainer"
+        className="top_menu"
         style={{
-            position: "fixed",
-            width: "100%",
-            background: "rgba(0, 0, 0, 0.5)",
+            
         }}
         >
         <Link to="/" className="x-logo">
-            <img src={logoImg} alt="logo" width="100px" draggable="false" />
+            <img src={logoImg} alt="logo" width="130px" draggable="false" />
         </Link>
-        <Link to="/" className="x-navLink">
-            Home
-        </Link>
-        {/* <ScrollLink to="about" spy={true} smooth={true} className="x-navLink">
-            About Game
-        </ScrollLink>
-        <ScrollLink to="features" spy={true} smooth={true} className="x-navLink">
-            Features
-        </ScrollLink> */}
-        {/* <Link to="/tokenomics" className="x-navLink">
-                Tokenomics
+        <div style={{textAlign:'right',width:'100%', padding:15}}>
+            <Link to="/" className="x-navLink">
+                HOME
             </Link>
-            <Link to="/defi" className="x-navLink">
-                Defi
-            </Link> */}
-        <Link to="/nft-marketplace" className="x-navLink">
-            NFT marketplace
-        </Link>
-        <Link to="/my-items" className="x-navLink">
-            My Items
-        </Link>
-        <button className="x-smallChoco-1" onClick={() => handleLogin("1")}>
+            {/* <ScrollLink to="about" spy={true} smooth={true} className="x-navLink">
+                About Game
+            </ScrollLink>
+            <ScrollLink to="features" spy={true} smooth={true} className="x-navLink">
+                Features
+            </ScrollLink> */}
+            {/* <Link to="/tokenomics" className="x-navLink">
+                    Tokenomics
+                </Link>
+                <Link to="/defi" className="x-navLink">
+                    Defi
+                </Link> */}
+            <Link to="/nft-marketplace" className="x-navLink">
+                NFT MARKETPLACE
+            </Link>
+            <Link to="/my-items" className="x-navLink">
+                MY ITEMS
+            </Link>
+            
+        </div>
+        <button className="x-connect-button" onClick={() => handleLogin("1")}>
+                CONNECT
+            </button>
+        {/* <button className="x-smallChoco-1" onClick={() => handleLogin("1")}>
             {wallet.status === "connected" ? styledAddress : "Login"}
         </button>
         <button className="x-smallChoco-1" onClick={() => handleLogin("2")}>
             Sign Up
-        </button>
+        </button> */}
         </div>
     );
     const mobileContent = (
         <div className="x-navContainer">
         <Link to="/" className="float-left">
-            <img src={logoImg} alt="logo" width="100px" />
+            <img src={logoImg} className="nav_logo" alt="logo" />
         </Link>
         <IconButton className="x-humburger-icon" onClick={showMenu}>
             <MenuIcon />
@@ -213,7 +217,7 @@ function Nav() {
                 <ListItemText primary="Features" />
                 </StyledMenuItem > */}
 
-            <StyledMenuItem onClick={() => history.push("/defi")}>
+            {/* <StyledMenuItem onClick={() => history.push("/defi")}>
                 <ListItemIcon>
                 <InboxIcon fontSize="small" />
                 </ListItemIcon>
@@ -224,7 +228,7 @@ function Nav() {
                 <InboxIcon fontSize="small" />
                 </ListItemIcon>
                 <ListItemText primary="Tokenomics" />
-            </StyledMenuItem>
+            </StyledMenuItem> */}
             <StyledMenuItem onClick={() => history.push("/nft-marketplace")}>
                 <ListItemIcon>
                 <InboxIcon fontSize="small" />
@@ -232,14 +236,14 @@ function Nav() {
                 <ListItemText primary="NFT marketplace" />
             </StyledMenuItem>
 
-            {/*
+            
                 <StyledMenuItem  onClick = {()=>history.push("/my-items")}>
                 <ListItemIcon>
                         <InboxIcon fontSize="small" />
                 </ListItemIcon>
                 <ListItemText primary="My Items" />
                 </StyledMenuItem>
-                */}
+               
             <StyledMenuItem
                 onClick={() => console.log("connect button is clicked")}
             >
@@ -248,12 +252,12 @@ function Nav() {
                 </ListItemIcon>
                 <ListItemText primary="Connect" />
             </StyledMenuItem>
-            <StyledMenuItem>
+            {/* <StyledMenuItem>
                 <ListItemIcon>
                 <InboxIcon fontSize="small" />
                 </ListItemIcon>
                 <ListItemText primary="Play Now" />
-            </StyledMenuItem>
+            </StyledMenuItem> */}
             </StyledMenu>
         </div>
         <LoginDialog

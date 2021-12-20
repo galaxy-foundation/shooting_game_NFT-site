@@ -49,19 +49,27 @@ function CharactSlide() {
   return (
     <div>
       <div className="x-home-step-video step1">
-        <div className="x-home1-top-img">
           <h1>Characters</h1>
-          <ImageGallery
-            infinite={true}
-            autoPlay={true}
-            showPlayButton={true}
-            useTranslate3D={true}
-            showThumbnails={true}
-            thumbnailPosition="bottom"
-            items={images}
-            lazyLoad = {true}
-          />
+          <p>Choose your soldier</p>
+        <div className="box">
+          <div className="gallery_div">
+            <ImageGallery
+              infinite={true}
+              autoPlay={true}
+              showPlayButton={true}
+              useTranslate3D={true}
+              showThumbnails={true}
+              thumbnailPosition="bottom"
+              items={images}
+              lazyLoad = {true}
+            />
+          </div>
         </div>
+        <div>
+        <p style={{fontSize:22, position:'absolute', bottom:1,width:'100%'}}>START OF LONG <span style={{fontWeight:'bold'}}>JOURNEY</span></p>
+
+        </div>
+        
       </div>
     </div>
   );

@@ -10,6 +10,8 @@ import Items from "../pages/items";
 import NftMarketplace from "../pages/nftMarket";
 import WeaponCreatepage from "../pages/weaponCreatePage";
 import WeaponBuyepage from "../pages/WeaponBuyPage";
+import SignupPage from "../pages/signupPage";
+
 
 import MyItemsPage from "../pages/myItemsPage";
 import MyOnsaledItemsPage from "../pages/myOnsaledItemsPage";
@@ -33,6 +35,12 @@ function Routes() {
                 path="/nft-marketplace/onsales/:id"
                 component={WeaponBuyepage}
             />
+            <Route
+                exact
+                path="/signup"
+                component={SignupPage}
+            />
+            
             {/* <Route
                 exact
                 path="/nft-marketplace/pets/:id"
@@ -40,6 +48,8 @@ function Routes() {
             /> */}
             <Route exact path="/nft-marketplace" component={NftMarketplace} />
             <Route exact path="/my-items" component={Items} />
+            <Route exact path="/signup" component={Items} />
+
             <Route exact path="/my-items/:id" component={Items} />
             <Route exact path="/my-items/items/:id" component={MyItemsPage} />
             <Route exact path="/my-items/onsales/:id" component={MyOnsaledItemsPage} />
