@@ -41,10 +41,10 @@ function Bottom() {
           
         </p>
         <div className="footer_div">
-              <a>provacy polici</a>
+              {/* <a>provacy polici</a>
               <a>Term of service</a>
               <a>support</a>
-              <a>follow us</a>
+              <a>follow us</a> */}
           <p>powered by ICICb-group.com</p>
 
           </div>

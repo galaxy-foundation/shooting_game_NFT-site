@@ -117,7 +117,7 @@ function Nav() {
             <Link to="/" className="x-logo">
                 <img src={logoImg} alt="logo" width="130px" draggable="false" />
             </Link>
-            <div style={{ textAlign: "right", width: "100%", padding: 15 }}>
+            {/* <div style={{ textAlign: "right", width: "100%", padding: 15 }}>
                 <Link to="/" className="x-navLink">
                     HOME
                 </Link>
@@ -127,13 +127,13 @@ function Nav() {
                 <Link to="/my-items" className="x-navLink">
                     MY ITEMS
                 </Link>
-            </div>
-            <button
+            </div> */}
+            {/* <button
                 className="x-connect-button"
                 onClick={() => handleLogin("1")}
             >
                 {wallet.status === "connected" ? "DISCONNECT" : "CONNECT"}
-            </button>
+            </button> */}
         </div>
     );
     const mobileContent = (
