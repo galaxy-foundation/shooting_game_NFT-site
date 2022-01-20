@@ -1,17 +1,17 @@
 const initState = {
-    metamaskState: false
-}
+    username: "",
+};
 
-const metamaskReducer = (state = initState, action) =>{
-    switch(action.type){
-        case 'CHANGE_METAMASKSTATE':
+const metamaskReducer = (state = initState, action) => {
+    switch (action.type) {
+        case "SET_USERNAME":
             return {
                 ...state,
-                metamaskState: action.payload
-            }
+                username: action.payload,
+            };
         default:
-            return state    
+            return state;
     }
-}
+};
 
 export default metamaskReducer;

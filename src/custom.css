@@ -4,3 +4,25 @@
 .image-gallery-slide {
     width: 100%;
 }
+
+.LoginDialog {
+    background-color: rgba(0, 0, 0, 90%);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.MuiDialog-paperWidthSm {
+    color: white !important;
+    background: transparent !important;
+}
+
+.MuiInputLabel-outlined {
+    color: grey !important;
+}
+.MuiOutlinedInput-input {
+    color: white !important;
+}
+
+.font_white {
+    color: white !important;
+}
