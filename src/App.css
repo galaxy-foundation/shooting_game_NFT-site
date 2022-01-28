@@ -387,6 +387,7 @@ body {
   margin: 0;
   z-index: 3;
   width: 100%;
+  background-position: center;
 
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
