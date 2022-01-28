@@ -17,7 +17,7 @@ function OpenWar() {
             <p>
             Attend to open battle and Upgrade your weapon.
             </p>
-            <button>MORE</button>
+            {/* <button>MORE</button> */}
         </Grid>
         </Grid>
     </div>

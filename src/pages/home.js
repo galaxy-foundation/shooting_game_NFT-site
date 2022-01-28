@@ -7,6 +7,8 @@ import BottomSection from "../components/home/bottom";
 import CharactSlide from "../components/home/character-slide";
 import Adventure from "../components/home/adventure";
 import OpenWar from "../components/home/openWar";
+import VideoComponent from "../components/home/videoComponent";
+
 import { useHistory } from "react-router-dom";
 
 import splitImg from "../assets/img/shooting/split_symbol.png";
@@ -44,6 +46,7 @@ function Home() {
                     </div>
                 </div>
                 <OpenWar />
+                <VideoComponent />
                 <CharactSlide />
                 <Adventure />
 

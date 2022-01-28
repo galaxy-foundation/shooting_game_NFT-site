@@ -141,9 +141,9 @@ function Nav() {
             <Link to="/" className="float-left">
                 <img src={logoImg} className="nav_logo" alt="logo" />
             </Link>
-            <IconButton className="x-humburger-icon" onClick={showMenu}>
+            {/* <IconButton className="x-humburger-icon" onClick={showMenu}>
                 <MenuIcon />
-            </IconButton>
+            </IconButton> */}
         </div>
     );
     return (
@@ -157,12 +157,12 @@ function Nav() {
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
                 >
-                    <StyledMenuItem onClick={() => history.push("/")}>
+                    {/* <StyledMenuItem onClick={() => history.push("/")}>
                         <ListItemIcon>
                             <SendIcon fontSize="small" />
                         </ListItemIcon>
                         <ListItemText primary="Home" />
-                    </StyledMenuItem>
+                    </StyledMenuItem> */}
 
                     {/*
                 <StyledMenuItem onClick = {()=>history.push("/#about")}>
@@ -190,7 +190,7 @@ function Nav() {
                 </ListItemIcon>
                 <ListItemText primary="Tokenomics" />
             </StyledMenuItem> */}
-                    <StyledMenuItem
+                    {/* <StyledMenuItem
                         onClick={() => history.push("/nft-marketplace")}
                     >
                         <ListItemIcon>
@@ -211,7 +211,7 @@ function Nav() {
                             <InboxIcon fontSize="small" />
                         </ListItemIcon>
                         <ListItemText primary="Connect" />
-                    </StyledMenuItem>
+                    </StyledMenuItem> */}
                     {/* <StyledMenuItem>
                 <ListItemIcon>
                 <InboxIcon fontSize="small" />

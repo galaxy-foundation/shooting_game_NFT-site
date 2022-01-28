@@ -21,7 +21,7 @@ function CharactSlide() {
                     Attend to PVP combat and train  your weapons.<br />
                     Attend to open war and become the winner of the war. <br />
                     All is yours.</p>
-                    <button>More</button>
+                    {/* <button>More</button> */}
                 </div>
             </Grid>
         </Grid>

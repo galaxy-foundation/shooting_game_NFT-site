@@ -7,12 +7,14 @@ body {
   font-family: 'Montserrat' !important;
 }
 .footer_div a{
-  padding:0px 40px;
+  /* padding:0px 40px; */
   text-transform:uppercase;
-  border-right: 1px solid white;
+  /* border-right: 1px solid white; */
   font-size: 14px;
   letter-spacing: 2px;
-  color:white !important
+  color:white !important;
+  text-decoration: none;
+
 }
 .footer_div a:nth-child(4){
   border:none;
@@ -27,6 +29,10 @@ body {
 }
 .footer_div{
   text-align: center;
+  padding-top:50px
+}
+.footer_div ul{
+  text-align: left;
 }
 .items_top_div{
   background-image: url(./assets/img/item_section_top.png);
@@ -535,6 +541,10 @@ body {
   width:130px;
 }
 @media only screen and (max-width: 968px) {
+  .footer_div ul{
+    text-align: center;
+    margin-top:30px
+  }
   .x-chocoImgBtn {
     background: url("./assets/img/chocoImgBtn.png") no-repeat scroll 0 0
       transparent;
